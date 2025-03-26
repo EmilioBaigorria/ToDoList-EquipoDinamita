@@ -1,12 +1,12 @@
+import { Administration } from "./components/screens/Administration/Administration"
 
-import './App.css'
 
 function App() {
 
 
   return (
     <>
-
+      <Administration/>
     </>
   )
 }
