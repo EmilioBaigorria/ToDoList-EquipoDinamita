@@ -2,6 +2,6 @@ import styles from "./Header.module.css"
 
 export const Header = () => {
   return (
-    <div className={styles.mainHeaderContainer}>Simply task</div>
+    <div className={styles.mainHeaderContainer}>SimpleTask</div>
   )
 }
