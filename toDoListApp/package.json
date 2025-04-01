@@ -11,7 +11,8 @@
     "dbDev": "npx json-server db.json --watch --port 3000"
   },
   "dependencies": {
-    "dot-env": "^0.0.1",
+    "axios": "^1.8.4",
+    "dotenv": "^16.4.7",
     "json-server": "^1.0.0-beta.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
