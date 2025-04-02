@@ -1,14 +1,14 @@
 import styles from "./Administration.module.css"
 import { Header } from "../../ui/Header/Header"
 import { Backlog } from "../../ui/Backlog/Backlog"
-import { crearTarea, eliminarTareaByID, getALLTareas } from "../../../data/taskController"
+import { actualizarTarea, crearTarea, eliminarTareaByID, getALLTareas } from "../../../data/taskController"
 import { ITask } from "../../../types/ITask"
 
 
 export const Administration = () => {
   const tarea:ITask={
     id:"43",
-    titulo:"Nueva tareas",
+    titulo:"Tarea actualizada",
     descripcion:"Una nueva tareas hecha para testeo",
     estado:"activo",
     fechaLimite:"23-4-24"
@@ -17,9 +17,10 @@ export const Administration = () => {
     //const response=await getALLTareas()
 
     //const response =await crearTarea(tarea)
-    const response=await eliminarTareaByID(tarea.id)
+    //const response=await eliminarTareaByID(tarea.id)
+    const response=await actualizarTarea(tarea)
 
-    //console.log(response)
+    console.log(response)
   }
   return (
     <div className={styles.mainAdminContainer}>

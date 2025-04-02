@@ -22,6 +22,7 @@ export const crearTarea=async(newTask:ITask)=>{
         }else{
             await putTask([newTask])
         }
+        return newTask
     } catch (error) {
         console.log("Ocurrio un error durante la creacion de una nueva tarea",error)
     }
@@ -35,12 +36,27 @@ export const eliminarTareaByID=async(taskId:string)=>{
             )
             
             await putTask(newBacklog)
+            return newBacklog
         } 
     } catch (error) {
         console.log("Ocurrio un error durante la eliminacion de una tarea",error)
     }
 }
 
-export const actualizarTarea=()=>{
+export const actualizarTarea=async(tareaActualizada:ITask)=>{
+    try {
+        const tareas=await getALLTareas()
+        if(tareas){
+            const newBacklog=tareas.map((tarea)=>
+                tarea.id==tareaActualizada.id ? {...tarea,...tareaActualizada}: tarea
+            )
+            await putTask(newBacklog)
+            return newBacklog
+        }else{
+            return null
+        }
+    } catch (error) {
+        console.log("Ocurrio un error durante la actualizados de una tarea",error)
+    }
     
 }
