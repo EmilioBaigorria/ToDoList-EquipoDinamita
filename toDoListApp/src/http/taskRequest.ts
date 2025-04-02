@@ -1,6 +1,6 @@
 import { ITask } from "../types/ITask";
-import 'dotenv/config'
-const apiUrl=process.env.APIURL
+
+const apiUrl=import.meta.env.VITE_APIURL
 
 export const putTask=async(el:ITask[])=>{
     try {

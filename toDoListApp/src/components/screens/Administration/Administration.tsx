@@ -1,12 +1,23 @@
 import styles from "./Administration.module.css"
 import { Header } from "../../ui/Header/Header"
 import { Backlog } from "../../ui/Backlog/Backlog"
-import { getALLTareas } from "../../../data/taskController"
+import { crearTarea, getALLTareas } from "../../../data/taskController"
+import { ITask } from "../../../types/ITask"
 
 
 export const Administration = () => {
+  const tarea:ITask={
+    id:"43",
+    titulo:"Nueva tareas",
+    descripcion:"Una nueva tareas hecha para testeo",
+    estado:"activo",
+    fechaLimite:"23-4-24"
+  }
   const test=async()=>{
-    const response=await getALLTareas()
+    //const response=await getALLTareas()
+
+    const response =await crearTarea(tarea)
+
     console.log(response)
   }
   return (
