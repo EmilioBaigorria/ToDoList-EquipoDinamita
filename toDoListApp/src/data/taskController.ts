@@ -1,13 +1,13 @@
 import axios from "axios";
 import { ITask } from "../types/ITask";
 import { putTask } from "../http/taskRequest";
+import { IBacklog } from "../types/IBacklog";
 
 const apiUrl=import.meta.env.VITE_APIURL
 
 export const getALLTareas=async():Promise<ITask[]|undefined>=>{
     try {
-        const response =await axios.get<{tareas:ITask[]}>(`${apiUrl}/backlog`)
-        console.log(`${apiUrl}/backlog`)
+        const response =await axios.get<IBacklog>(`${apiUrl}/backlog`)
         return response.data.tareas
         
     } catch (error) {
@@ -25,4 +25,22 @@ export const crearTarea=async(newTask:ITask)=>{
     } catch (error) {
         console.log("Ocurrio un error durante la creacion de una nueva tarea",error)
     }
+}
+export const eliminarTareaByID=async(taskId:string)=>{
+    try {
+        const tareas=await getALLTareas()
+        if(tareas){
+            const newBacklog=tareas.filter((el)=>
+                el.id!==taskId
+            )
+            
+            await putTask(newBacklog)
+        } 
+    } catch (error) {
+        console.log("Ocurrio un error durante la eliminacion de una tarea",error)
+    }
+}
+
+export const actualizarTarea=()=>{
+    
 }

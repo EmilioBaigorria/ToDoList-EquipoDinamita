@@ -1,7 +1,7 @@
 import styles from "./Administration.module.css"
 import { Header } from "../../ui/Header/Header"
 import { Backlog } from "../../ui/Backlog/Backlog"
-import { crearTarea, getALLTareas } from "../../../data/taskController"
+import { crearTarea, eliminarTareaByID, getALLTareas } from "../../../data/taskController"
 import { ITask } from "../../../types/ITask"
 
 
@@ -16,9 +16,10 @@ export const Administration = () => {
   const test=async()=>{
     //const response=await getALLTareas()
 
-    const response =await crearTarea(tarea)
+    //const response =await crearTarea(tarea)
+    const response=await eliminarTareaByID(tarea.id)
 
-    console.log(response)
+    //console.log(response)
   }
   return (
     <div className={styles.mainAdminContainer}>
