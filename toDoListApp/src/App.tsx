@@ -5,7 +5,6 @@ function App() {
 
   return (
     <>
-      <p>Hola mundo</p>
       <Administration/>
     </>
   )

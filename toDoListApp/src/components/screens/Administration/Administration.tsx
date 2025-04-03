@@ -13,20 +13,8 @@ export const Administration = () => {
     estado:"activo",
     fechaLimite:"23-4-24"
   }
-  const test=async()=>{
-    //const response=await getALLTareas()
-
-    //const response =await crearTarea(tarea)
-    //const response=await eliminarTareaByID(tarea.id)
-    const response=await actualizarTarea(tarea)
-
-    console.log(response)
-  }
   return (
     <div className={styles.mainAdminContainer}>
-        <div>
-          <button onClick={test}>TEST</button>
-        </div>
         <div>
             <Header/>
         </div>
