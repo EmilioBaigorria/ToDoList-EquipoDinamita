@@ -1,8 +1,10 @@
 import { FC } from "react"
 import styles from "./TaskCard.module.css"
 import { Button } from "../Button/Button"
+import { ITask } from "../../../types/ITask"
+import { VscEdit, VscEye, VscTrash } from "react-icons/vsc";
 interface ITaskCard{
-    data:string
+    data:ITask
 }
 export const TaskCard:FC<ITaskCard> = ({data}) => {
   
@@ -10,19 +12,18 @@ export const TaskCard:FC<ITaskCard> = ({data}) => {
     <div className={styles.mainContainer}>
       <div className={styles.leftDataContainer}>
         <p>
-          Titulo:{data}
+          Titulo:{data.titulo}
         </p>
         <p>
-          Descripcion:{}
+          Descripcion:{data.descripcion}
         </p>
       </div>
       <div className={styles.rightDataContainer}>
         <Button text="Enviar a" action={()=>{}}/>
         <p>dropdown</p>
-        <Button text="Eye" action={()=>{}}/>
-        <Button text="Edit" action={()=>{}}/>
-        <Button text="Delete" action={()=>{}}/>
-
+        <Button action={()=>{}} icon={<span className="material-symbols-outlined">visibility</span>}/>
+        <Button action={()=>{}} icon={<span className="material-symbols-outlined">edit</span>}/>
+        <Button  action={()=>{}} icon={<span className="material-symbols-outlined">delete</span>} />
       </div>
     </div>
   )

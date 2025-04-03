@@ -19,9 +19,9 @@ export const SprintListCard:FC<ISprintListCard> = ({sprint}) => {
             </div>
         </div>
         <div className={styles.mainContainer_buttonContainer}>{/*Botones*/}
-            <Button text="ver" action={()=>{}}/>
-            <Button text="editar" action={()=>{}}/>
-            <Button text="Borrar" action={()=>{}}/>
+            <Button action={()=>{}} icon={<span className="material-symbols-outlined">visibility</span>}/>
+            <Button action={()=>{}} icon={<span className="material-symbols-outlined">edit</span>}/>
+            <Button  action={()=>{}} icon={<span className="material-symbols-outlined">delete</span>} />
         </div>
     </div>
   )

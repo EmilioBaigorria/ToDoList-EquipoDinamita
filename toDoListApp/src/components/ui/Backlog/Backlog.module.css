@@ -16,9 +16,6 @@
     cursor: pointer;
 }
 
-.buttonContainer Button{
-    color:black
-}
 .taskListContainer{
     gap: 1rem;
 }
