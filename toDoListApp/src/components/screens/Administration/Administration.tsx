@@ -1,5 +1,3 @@
-import styles from "./Administration.module.css"
-import { Header } from "../../ui/Header/Header"
 import { Backlog } from "../../ui/Backlog/Backlog"
 import { actualizarTarea, crearTarea, eliminarTareaByID, getALLTareas } from "../../../data/taskController"
 import { ITask } from "../../../types/ITask"
@@ -33,9 +31,14 @@ export const Administration = () => {
         <div className={styles.contentContainer}>
             <div className={styles.contentContainer_sprintList}>Sprint list</div>
             <div>
-                <Backlog/>
+                <Header />
+            </div>
+            <div className={styles.contentContainer}>
+                <div className={styles.contentContainer_sprintList}>Sprint list</div>
+                <div>
+                    <Backlog />
+                </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }

@@ -1,5 +1,4 @@
-import { Administration } from "./components/screens/Administration/Administration"
-
+import { Administration } from "./components/screens/Administration/Administration";
 
 function App() {
 
