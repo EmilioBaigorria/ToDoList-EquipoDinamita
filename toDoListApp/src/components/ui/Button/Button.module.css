@@ -4,3 +4,10 @@
     border: .1px solid white;
     background-color: #27445D;
 }
+.button:hover{
+    color: #27445D ;
+    justify-content: space-around;
+    align-items: center;
+    border: .1px solid #27445D;
+    background-color: white;
+}
