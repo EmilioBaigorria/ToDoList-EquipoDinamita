@@ -1,0 +1,6 @@
+.button{
+    justify-content: space-around;
+    align-items: center;
+    border: .1px solid white;
+    background-color: #27445D;
+}

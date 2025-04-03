@@ -5,6 +5,7 @@ interface ITaskCard{
     data:string
 }
 export const TaskCard:FC<ITaskCard> = ({data}) => {
+  
   return (
     <div className={styles.mainContainer}>
       <div className={styles.leftDataContainer}>

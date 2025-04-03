@@ -11,7 +11,7 @@ export const Button:FC<IButton> = ({text,action}) => {
     }
   return (
     <div>
-        <button onClick={useAction}>{text}</button>
+        <button className={styles.button} onClick={useAction}>{text}</button>
     </div>
   )
 }
