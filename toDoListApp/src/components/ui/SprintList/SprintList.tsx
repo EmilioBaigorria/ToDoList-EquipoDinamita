@@ -1,20 +1,24 @@
 
+import { useEffect, useState } from "react"
 import { ISprint } from "../../../types/ISprint"
-import { ISprintList } from "../../../types/ISprintList"
 import { Button } from "../Button/Button"
 import { SprintListCard } from "../SprintListCard/SprintListCard"
 import styles from "./SprintList.module.css"
+import { getALLSprints } from "../../../data/sprintController"
 
 export const SprintList = () => {
-    const randSprint={
-        id:"2",
-        fechaInicio:"02-03-2025",
-        fechaCierre:"04-05-2025",
-        nombre:"toDoList",
-        tareas:[]
+    const [sprints,setSprints]=useState<ISprint[]>([])
+
+    const getSpr=async()=>{
+        const sprints=await getALLSprints()
+        if(sprints){
+            setSprints(sprints)
         }
+    }
+    useEffect(()=>{
+        getSpr()
+    },[])
     
-    const sprintListContent:ISprint[]=[randSprint,randSprint,randSprint,randSprint]
 
   return (
     <div className={styles.mainContainer}>
@@ -27,7 +31,7 @@ export const SprintList = () => {
                 <Button text="CrearSprint" action={()=>{}}/>
             </div>
             <div className={styles.sprintListContainer}>
-            {sprintListContent.map((sprint)=>(
+            {sprints.map((sprint)=>(
                 <SprintListCard sprint={sprint}/>
             ))}
             </div>

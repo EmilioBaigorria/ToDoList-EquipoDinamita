@@ -56,7 +56,7 @@ export const actualizarTarea=async(tareaActualizada:ITask)=>{
             return null
         }
     } catch (error) {
-        console.log("Ocurrio un error durante la actualizados de una tarea",error)
+        console.log("Ocurrio un error durante la actualizacion de una tarea",error)
     }
     
 }

@@ -10,9 +10,6 @@ export const Backlog = () => {
 
     const [activeModal, setActiveModal] = useState(false)
 
-    //const task: string[] = ["tarea 1", "tarea 2", "tarea 3", "tarea 4", "tarea 5"]
-    //const task : string[]=["tarea 1"]
-
     const [taskList,setTaskList]=useState<ITask[]>([])
 
     const getTareas=async()=>{
