@@ -6,7 +6,7 @@ interface IModalVerTarea {
     onClose: () => void;
 }
 
-export const ModalVerTarea: FC<IModalVerTarea> = ({ isOpen, onClose }) => {
+export const ModalVerSprint: FC<IModalVerTarea> = ({ isOpen, onClose }) => {
 
     return (
         <div>

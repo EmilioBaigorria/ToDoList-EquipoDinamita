@@ -5,10 +5,15 @@ import { TaskCard } from "../TaskCard/TaskCard"
 import styles from "./Backlog.module.css"
 import { getALLTareas } from "../../../data/taskController"
 import { ITask } from "../../../types/ITask"
+import { ModalEditarTarea } from "../../modals/ModalEditarSprint/modalEditarSprint"
+import { ModalVerTarea } from "../../modals/ModalVerSprint/modalVerSprint"
 
 export const Backlog = () => {
-
-    const [activeModal, setActiveModal] = useState(false)
+    /*Use 3 use state para el manejo de los modales pero creo que valdria la pena consirar cambarlo por un unico use state que contenga un objeto,
+    este objeto contendria la informacion del estados de los modales */
+    const [createTareaModal, setCreateTareaModal] = useState(false)
+    const [editTareaModal, setEditTareaModal] = useState(false)
+    const [verTareaModal, setVerTareaModal] = useState(false)
 
     const [taskList,setTaskList]=useState<ITask[]>([])
 
@@ -23,6 +28,18 @@ export const Backlog = () => {
     },[])
     return (
         <div className={styles.mainBacklogContainer}>
+            <ModalCrearTarea
+                isOpen={createTareaModal}
+                onClose={()=>setCreateTareaModal(false)}
+            />
+            <ModalEditarTarea
+                isOpen={editTareaModal}
+                onClose={()=>setEditTareaModal(false)}
+            />
+            <ModalVerTarea
+                isOpen={verTareaModal}
+                onClose={()=>setVerTareaModal(false)}
+            />
             <div>
                 <div>
                     Backlog
@@ -31,16 +48,14 @@ export const Backlog = () => {
                     <div>
                         Tareas
                     </div>
-                    <Button text="Crear Tarea" action={()=>setActiveModal(true)} />
-                    <ModalCrearTarea
-                    isOpen={activeModal}
-                    onClose={()=>setActiveModal(false)}
-                    />
+                    <Button text="Crear Tarea" action={()=>setCreateTareaModal(true)} />
                 </div>
             </div>
             <div className={styles.taskListContainer}>
                 {taskList.map((el) => (
-                    <TaskCard data={el} />
+                    <TaskCard data={el} 
+                    setEditTareaModal={setEditTareaModal} 
+                    setVerTareaModal={setVerTareaModal} />
                 ))}
             </div>
         </div>

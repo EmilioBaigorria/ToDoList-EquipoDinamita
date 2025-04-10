@@ -2,11 +2,12 @@ import { FC } from "react"
 import styles from "./TaskCard.module.css"
 import { Button } from "../Button/Button"
 import { ITask } from "../../../types/ITask"
-import { VscEdit, VscEye, VscTrash } from "react-icons/vsc";
 interface ITaskCard{
     data:ITask
+    setEditTareaModal:Function
+    setVerTareaModal:Function
 }
-export const TaskCard:FC<ITaskCard> = ({data}) => {
+export const TaskCard:FC<ITaskCard> = ({data,setEditTareaModal,setVerTareaModal}) => {
   
   return (
     <div className={styles.mainContainer}>
@@ -21,8 +22,8 @@ export const TaskCard:FC<ITaskCard> = ({data}) => {
       <div className={styles.rightDataContainer}>
         <Button text="Enviar a" action={()=>{}}/>
         <p>dropdown</p>
-        <Button action={()=>{}} icon={<span className="material-symbols-outlined">visibility</span>}/>
-        <Button action={()=>{}} icon={<span className="material-symbols-outlined">edit</span>}/>
+        <Button action={()=>{setVerTareaModal(true)}} icon={<span className="material-symbols-outlined">visibility</span>}/>
+        <Button action={()=>{setEditTareaModal(true)}} icon={<span className="material-symbols-outlined">edit</span>}/>
         <Button  action={()=>{}} icon={<span className="material-symbols-outlined">delete</span>} />
       </div>
     </div>

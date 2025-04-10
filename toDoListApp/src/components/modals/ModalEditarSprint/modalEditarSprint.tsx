@@ -6,7 +6,7 @@ interface IModalEditarTarea {
     onClose: () => void;
 }
 
-export const ModalEditarTarea: FC<IModalEditarTarea> = ({ isOpen, onClose }) => {
+export const ModalEditarSprint: FC<IModalEditarTarea> = ({ isOpen, onClose }) => {
 
     return (
         <div>

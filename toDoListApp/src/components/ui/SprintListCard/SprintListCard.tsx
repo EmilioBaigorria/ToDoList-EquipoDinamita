@@ -5,8 +5,10 @@ import { Button } from "../Button/Button"
 
 interface ISprintListCard{
     sprint:ISprint
+    setEditarSprintModal:Function
+    setVerSprintgModal:Function
 }
-export const SprintListCard:FC<ISprintListCard> = ({sprint}) => {
+export const SprintListCard:FC<ISprintListCard> = ({sprint,setEditarSprintModal,setVerSprintgModal}) => {
   return (
     <div className={styles.mainContainer}>
         <div className={styles.mainContainer_sprintInfoContainer}>
@@ -19,8 +21,8 @@ export const SprintListCard:FC<ISprintListCard> = ({sprint}) => {
             </div>
         </div>
         <div className={styles.mainContainer_buttonContainer}>{/*Botones*/}
-            <Button action={()=>{}} icon={<span className="material-symbols-outlined">visibility</span>}/>
-            <Button action={()=>{}} icon={<span className="material-symbols-outlined">edit</span>}/>
+            <Button action={()=>{setVerSprintgModal(true)}} icon={<span className="material-symbols-outlined">visibility</span>}/>
+            <Button action={()=>{setEditarSprintModal(true)}} icon={<span className="material-symbols-outlined">edit</span>}/>
             <Button  action={()=>{}} icon={<span className="material-symbols-outlined">delete</span>} />
         </div>
     </div>
