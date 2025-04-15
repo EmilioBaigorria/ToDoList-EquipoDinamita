@@ -2,7 +2,7 @@ import { Backlog } from "../../ui/Backlog/Backlog"
 import styles from "./Administration.module.css"
 import { Header } from "../../ui/Header/Header"
 import { SprintList } from "../../ui/SprintList/SprintList"
-import { Button } from "../../ui/Button/Button"
+
 
 export const Administration = () => {
   return (

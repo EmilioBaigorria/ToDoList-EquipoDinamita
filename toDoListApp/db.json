@@ -33,6 +33,13 @@
             "fechaLimite": "2025-03-06"
           }
         ]
+      },
+      {
+        "id": "653862",
+        "fechaCierre": "07/05/2025",
+        "fechaInicio": "07/04/2025",
+        "nombre": "Sprint de prueba modificado",
+        "tareas": []
       }
     ]
   }

@@ -57,7 +57,6 @@ export const eliminarSprintByID=async(sprintId:String)=>{
         console.log("Ocurrio un error durante la eliminacion de un sprint",error)
     }
 }
-
 export const actualizarSprint=async(sprintActualizado:ISprint)=>{
     try {
         const sprints=await getALLSprints()
@@ -84,9 +83,40 @@ export const addTaskToSprint=async(newTask:ITask,sprintId:String)=>{
         }
         return null
     } catch (error) {
-        console.log("Ocurrio un error durante el añadido de una nueva tarea al sprint de id:",sprintId,sprintId,error)
+        console.log("Ocurrio un error durante el añadido de una nueva tarea al sprint de id:",sprintId,error)
     }
 }
+export const updateTaskOnSprint=async(updatedTask:ITask,sprintId:String)=>{
+    try {
+        const sprint=await getSprintById(sprintId)
+        if(sprint){
+            const updatedTaskList=sprint.tareas.map((task)=>
+                task.id==updatedTask.id ? {...task,...updatedTask}:task
+            )
+            sprint.tareas=updatedTaskList
+            return await actualizarSprint(sprint)
+        }
+        return null
+    } catch (error) {
+        console.log("Ocurrio un error durante el añadido de una nueva tarea al sprint de id:",sprintId,error)
+    }
+}
+export const deleteTaskInSprintById=async(taskId:String,sprintId:String)=>{
+    try {
+        const sprint=await getSprintById(sprintId)
+        if(sprint){
+            const updatedTaskList=sprint.tareas.filter((el)=>
+                el.id!==taskId
+            )
+            sprint.tareas=updatedTaskList
+            return await actualizarSprint(sprint)
+        }
+        return null
+    } catch (error) {
+        
+    }
+}
+//Me di cuenta que esta funcion es redundante, updateTaskOnSprint hace lo mismo, la voy a dejar solo porque puede ser conveniente
 export const changeTaskStateOnSprint=async(newState:State,taskToChange:ITask,sprintId:String)=>{
     try {
         const sprint=await getSprintById(sprintId)
