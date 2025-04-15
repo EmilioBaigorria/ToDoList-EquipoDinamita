@@ -1,11 +1,12 @@
-import { Administration } from "./components/screens/Administration/Administration";
+
+import { AppRouter } from "./routes/appRouter";
 
 function App() {
 
 
   return (
     <>
-      <Administration/>
+      <AppRouter/>
     </>
   )
 }

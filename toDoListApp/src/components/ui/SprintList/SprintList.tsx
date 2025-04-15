@@ -52,7 +52,7 @@ export const SprintList = () => {
             </div>
             <div className={styles.sprintListContainer}>
             {sprints.map((sprint)=>(
-                <SprintListCard sprint={sprint} setEditarSprintModal={setEditarSprintModal} setVerSprintgModal={setVerSprintgModal}/>
+                <SprintListCard key={sprint.id} sprint={sprint} setEditarSprintModal={setEditarSprintModal} setVerSprintgModal={setVerSprintgModal}/>
             ))}
             </div>
         </div>

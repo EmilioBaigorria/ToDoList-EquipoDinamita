@@ -54,7 +54,7 @@ export const Backlog = () => {
             </div>
             <div className={styles.taskListContainer}>
                 {taskList.map((el) => (
-                    <TaskCard data={el} 
+                    <TaskCard data={el} key={el.id} 
                     setEditTareaModal={setEditTareaModal} 
                     setVerTareaModal={setVerTareaModal} />
                 ))}
