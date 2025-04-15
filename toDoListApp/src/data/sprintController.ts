@@ -3,7 +3,7 @@ import axios from "axios";
 import { ISprint } from "../types/ISprint";
 import { ISprintList } from "../types/ISprintList";
 import { putSprint } from "../http/sprintRequest";
-
+import { ITask, State } from "../types/ITask";
 
 const apiUrl=import.meta.env.VITE_APIURL
 
@@ -13,7 +13,20 @@ export const getALLSprints=async():Promise<ISprint[]|undefined>=>{
         return response.data.sprints
         
     } catch (error) {
-        console.log("Ocurrio un error durante la obtencion de todas los sprints",error)
+        console.log("Ocurrio un error durante la obtencion de todos los sprints",error)
+    }
+}
+export const getSprintById=async(sprintId:String):Promise<ISprint|undefined>=>{
+    try {
+        const sprints=await getALLSprints()
+        if(sprints){
+            const newSprintList=sprints.filter((el)=>
+                el.id==sprintId
+            )
+            return newSprintList[0]
+        } 
+    } catch (error) {
+        console.log("Ocurrio un error durante la obtencion del sprint de id",sprintId,error)
     }
 }
 export const crearSprint=async(newSprint:ISprint)=>{
@@ -29,7 +42,7 @@ export const crearSprint=async(newSprint:ISprint)=>{
         console.log("Ocurrio un error durante la creacion de un nuevo sprint",error)
     }
 }
-export const eliminarTareaByID=async(sprintId:string)=>{
+export const eliminarSprintByID=async(sprintId:String)=>{
     try {
         const sprints=await getALLSprints()
         if(sprints){
@@ -45,20 +58,48 @@ export const eliminarTareaByID=async(sprintId:string)=>{
     }
 }
 
-export const actualizarTarea=async(sprintActualizada:ISprint)=>{
+export const actualizarSprint=async(sprintActualizado:ISprint)=>{
     try {
         const sprints=await getALLSprints()
         if(sprints){
             const newSprintList=sprints.map((sprint)=>
-                sprint.id==sprintActualizada.id ? {...sprint,...sprintActualizada}: sprint
+                sprint.id==sprintActualizado.id ? {...sprint,...sprintActualizado}: sprint
             )
             await putSprint(newSprintList)
             return newSprintList
-        }else{
-            return null
         }
+        return null
+        
     } catch (error) {
         console.log("Ocurrio un error durante la actualizacion de un sprint",error)
     }
     
+}
+export const addTaskToSprint=async(newTask:ITask,sprintId:String)=>{
+    try {
+        const sprint=await getSprintById(sprintId)
+        if(sprint){
+            sprint.tareas.push(newTask)
+            return await actualizarSprint(sprint)
+        }
+        return null
+    } catch (error) {
+        console.log("Ocurrio un error durante el añadido de una nueva tarea al sprint de id:",sprintId,sprintId,error)
+    }
+}
+export const changeTaskStateOnSprint=async(newState:State,taskToChange:ITask,sprintId:String)=>{
+    try {
+        const sprint=await getSprintById(sprintId)
+        if(sprint){
+            taskToChange.estado=newState
+            const newTaskList=sprint.tareas.map((task)=>
+                task.id==taskToChange.id ? {...task,...taskToChange}: task
+            )
+            sprint.tareas=newTaskList
+            return await actualizarSprint(sprint)
+        }
+        return null
+    } catch (error) {
+        console.log("Ocurrio un error durante el añadido de una nueva tarea al sprint de id:",sprintId,error)
+    }
 }

@@ -5,8 +5,9 @@ import { TaskCard } from "../TaskCard/TaskCard"
 import styles from "./Backlog.module.css"
 import { getALLTareas } from "../../../data/taskController"
 import { ITask } from "../../../types/ITask"
-import { ModalEditarTarea } from "../../modals/ModalEditarSprint/modalEditarSprint"
-import { ModalVerTarea } from "../../modals/ModalVerSprint/modalVerSprint"
+import { ModalEditarTarea } from "../../modals/ModalEditarTarea/modalEditarTarea"
+import { ModalVerTarea } from "../../modals/ModalVerTarea/modalVerTarea"
+
 
 export const Backlog = () => {
     /*Use 3 use state para el manejo de los modales pero creo que valdria la pena consirar cambarlo por un unico use state que contenga un objeto,
