@@ -8,6 +8,7 @@ import { getALLSprints } from "../../../data/sprintController"
 import { ModalCrearSprint } from "../../modals/ModalCrearSprint/modalCrearSprint"
 import {ModalEditarSprint} from "../../modals/ModalEditarSprint/modalEditarSprint"
 import { ModalVerSprint } from "../../modals/ModalVerSprint/modalVerSprint"
+import { NavLink } from "react-router-dom"
 
 export const SprintList = () => {
 
@@ -43,8 +44,8 @@ export const SprintList = () => {
         onClose={()=>setVerSprintgModal(false)}
         />
         <div className={styles.mainContainer_contentContainer}>
-            <div>
-                <Button text="Backlog" action={()=>{}}/>
+            <div className={styles.buttonsContainer}>
+                <NavLink to="/"><Button text="Backlog"  action={()=>{}}/></NavLink>
             </div>
             <div className={styles.contentContainer_sprintList_buttonSection}>
                 <p>Sprints</p>
@@ -52,7 +53,10 @@ export const SprintList = () => {
             </div>
             <div className={styles.sprintListContainer}>
             {sprints.map((sprint)=>(
-                <SprintListCard key={sprint.id} sprint={sprint} setEditarSprintModal={setEditarSprintModal} setVerSprintgModal={setVerSprintgModal}/>
+                    <SprintListCard key={sprint.id}
+                    sprint={sprint} 
+                    setEditarSprintModal={setEditarSprintModal} 
+                    setVerSprintgModal={setVerSprintgModal}/>
             ))}
             </div>
         </div>

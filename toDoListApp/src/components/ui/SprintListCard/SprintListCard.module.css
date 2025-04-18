@@ -5,6 +5,9 @@
     display: flex;
     flex-direction: column;
 }
+.navButton{
+    background-color: none;
+}
 .mainContainer_sprintInfoContainer{
     display: flex;
     flex-direction: row;

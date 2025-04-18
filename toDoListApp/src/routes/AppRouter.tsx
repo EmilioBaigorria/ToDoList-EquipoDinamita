@@ -1,6 +1,8 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Administration } from '../components/screens/Administration/Administration'
+import { SprintTaskStatusPage } from '../components/screens/Sprintpage/SprintTaskStatusPage'
+
 
 export const AppRouter = () => {
 
@@ -10,6 +12,10 @@ export const AppRouter = () => {
             <Route path='/' element={
                 <Administration/>
             }/>
+            <Route path='/sprints' element={
+              <SprintTaskStatusPage/>
+            }
+            />
         </Routes>
     </BrowserRouter>
   )

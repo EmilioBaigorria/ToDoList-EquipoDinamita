@@ -2,6 +2,9 @@ import { FC } from "react"
 import { ISprint } from "../../../types/ISprint"
 import styles from "./SprintListCard.module.css"
 import { Button } from "../Button/Button"
+import { activeSprintStore } from "../../../store/activeSprintStore"
+import { useNavigate } from "react-router-dom"
+
 
 interface ISprintListCard{
     sprint:ISprint
@@ -9,8 +12,14 @@ interface ISprintListCard{
     setVerSprintgModal:Function
 }
 export const SprintListCard:FC<ISprintListCard> = ({sprint,setEditarSprintModal,setVerSprintgModal}) => {
+    const navigate=useNavigate()
+    const setActiveSprint=activeSprintStore((state)=>state.setActiveSprint)
+    const handleNavigate=()=>{
+        setActiveSprint(sprint)
+        navigate("/sprints")
+    }
   return (
-    <div className={styles.mainContainer}>
+    <div className={styles.mainContainer} onClick={handleNavigate}>
         <div className={styles.mainContainer_sprintInfoContainer}>
             <div>{/*Nombre del sprint*/}
                 <p>{sprint.nombre}</p>

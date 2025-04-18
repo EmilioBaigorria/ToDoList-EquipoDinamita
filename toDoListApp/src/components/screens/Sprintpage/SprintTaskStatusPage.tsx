@@ -1,23 +1,22 @@
-import { Backlog } from "../../ui/Backlog/Backlog"
-import styles from "./Administration.module.css"
 import { Header } from "../../ui/Header/Header"
 import { SprintList } from "../../ui/SprintList/SprintList"
+import { TaskListing } from "../../ui/TaskListing/TaskListing"
+import styles from "./SprintTaskStatusPage.module.css"
 
-
-export const Administration = () => {
-  return (
+export const SprintTaskStatusPage = () => {
+return (
     <div className={styles.mainAdminContainer}>
         <div>
             <Header/>
         </div>
         <div className={styles.contentContainer}>
             <div className={styles.contentContainer_sprintList}>
-              <SprintList/>
+                <SprintList/>
             </div>
             <div>
-              <Backlog/>
+                <TaskListing/>
             </div>
         </div>
     </div>
-      )
-    }
+)
+}
