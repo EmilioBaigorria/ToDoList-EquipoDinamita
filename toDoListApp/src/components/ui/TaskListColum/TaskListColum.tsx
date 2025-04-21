@@ -8,10 +8,11 @@ interface ITaskListColum{
 }
 export const TaskListColum:FC<ITaskListColum> = ({type,typeText,tasks}) => {
 
-  const[filteredTasks,setFilteredTasks]=useState()
+  const[filteredTasks,setFilteredTasks]=useState<ITask[]>()
 
   useEffect(()=>{
     const filtTasks=tasks.filter((el)=>el.estado==type)
+    setFilteredTasks(filtTasks)
   },[])
   return (
     <div>
@@ -20,7 +21,10 @@ export const TaskListColum:FC<ITaskListColum> = ({type,typeText,tasks}) => {
           {typeText}
         </p>
         <div>
-
+          {filteredTasks?
+          filteredTasks.map((el)=>(
+            <p>{el.titulo}</p>
+          )):<p>Ningura esta asignada a este cuadrante</p>}
         </div>
       </div>
     </div>

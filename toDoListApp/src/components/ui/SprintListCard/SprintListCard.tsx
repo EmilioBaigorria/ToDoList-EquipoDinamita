@@ -3,7 +3,8 @@ import { ISprint } from "../../../types/ISprint"
 import styles from "./SprintListCard.module.css"
 import { Button } from "../Button/Button"
 import { activeSprintStore } from "../../../store/activeSprintStore"
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router"
+
 
 
 interface ISprintListCard{
