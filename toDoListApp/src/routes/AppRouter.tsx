@@ -1,6 +1,6 @@
 
 
-import { BrowserRouter, Route, Routes } from 'react-router'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Administration } from '../components/screens/Administration/Administration'
 import { SprintTaskStatusPage } from '../components/screens/Sprintpage/SprintTaskStatusPage'
 

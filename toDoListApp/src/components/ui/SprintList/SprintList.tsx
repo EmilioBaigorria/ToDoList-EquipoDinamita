@@ -8,7 +8,8 @@ import { getALLSprints } from "../../../data/sprintController"
 import { ModalCrearSprint } from "../../modals/ModalCrearSprint/modalCrearSprint"
 import {ModalEditarSprint} from "../../modals/ModalEditarSprint/modalEditarSprint"
 import { ModalVerSprint } from "../../modals/ModalVerSprint/modalVerSprint"
-import { NavLink } from "react-router"
+import { NavLink } from "react-router-dom"
+
 
 
 export const SprintList = () => {
