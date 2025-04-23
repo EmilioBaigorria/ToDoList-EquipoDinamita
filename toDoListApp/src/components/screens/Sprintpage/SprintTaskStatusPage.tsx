@@ -13,7 +13,7 @@ return (
             <div className={styles.contentContainer_sprintList}>
                 <SprintList/>
             </div>
-            <div>
+            <div className={styles.contentContainer_taskListing}>
                 <TaskListing/>
             </div>
         </div>

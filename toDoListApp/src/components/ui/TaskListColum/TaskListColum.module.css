@@ -1,0 +1,14 @@
+.mainContainer{
+    width: 20vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #242423 ;
+    border-radius: .2rem;
+
+}
+.tasksContainer{
+    display: flex;
+    flex-direction: column;
+}

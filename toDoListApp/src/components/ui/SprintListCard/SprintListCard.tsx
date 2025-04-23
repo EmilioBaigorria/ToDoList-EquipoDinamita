@@ -14,10 +14,8 @@ interface ISprintListCard{
 }
 export const SprintListCard:FC<ISprintListCard> = ({sprint,setEditarSprintModal,setVerSprintgModal}) => {
     const navigate=useNavigate()
-    const setActiveSprint=activeSprintStore((state)=>state.setActiveSprint)
     const handleNavigate=()=>{
-        setActiveSprint(sprint)
-        navigate("/sprints")
+        navigate(`/sprints/${sprint.id}`)
     }
   return (
     <div className={styles.mainContainer} onClick={handleNavigate}>

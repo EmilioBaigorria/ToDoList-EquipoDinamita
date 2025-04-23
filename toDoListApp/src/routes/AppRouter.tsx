@@ -13,7 +13,7 @@ export const AppRouter = () => {
             <Route path='/' element={
                 <Administration/>
             }/>
-            <Route path='/sprints' element={
+            <Route path='/sprints/:sprintId' element={
               <SprintTaskStatusPage/>
             }
             />
