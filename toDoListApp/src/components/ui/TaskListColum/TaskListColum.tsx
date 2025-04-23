@@ -10,15 +10,15 @@ export const TaskListColum:FC<ITaskListColum> = ({typeText,tasks}) => {
 
   return (
     <div className={styles.mainContainer}>
-      <div>
+      <div className={styles.mainContainer_content}>
         <p>
           {typeText}
         </p>
-        <div className={styles.tasksContainer}>
-          {tasks?
-          tasks.map((el)=>(
-            <p>{el.titulo}</p>
-          )):<p>Ningura esta asignada a este cuadrante</p>}
+        <div className={styles.taskCoantainer}>
+          {filteredTasks && filteredTasks.length>0  ?
+            filteredTasks.map((el) => (
+              <ColumTaskCard key={el.id} task={el}/>
+            )) : <p>Ningura esta asignada a este cuadrante</p>}
         </div>
       </div>
     </div>
