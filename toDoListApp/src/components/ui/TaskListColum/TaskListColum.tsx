@@ -15,7 +15,7 @@ export const TaskListColum:FC<ITaskListColum> = ({typeText,tasks}) => {
         <p>
           {typeText}
         </p>
-        <div className={styles.taskCoantainer}>
+        <div className={styles.tasksContainer}>
           {tasks && tasks.length>0  ?
             tasks.map((el) => (
               <ColumTaskCard key={el.id} task={el}/>

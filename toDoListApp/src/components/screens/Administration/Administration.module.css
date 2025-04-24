@@ -23,7 +23,7 @@
 .contentContainer_sprintList {
     height: 100%;
     width: 30%;
-    overflow: hidden;
+    overflow-y: auto;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     padding: 20px;
@@ -31,6 +31,7 @@
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: transform 0.2s ease-in-out;
+    box-sizing: border-box;
 }
 
 .contentContainer_sprintList:hover {
