@@ -14,6 +14,8 @@ const tareasGenericas = ["Tarea 1", "Tarea 2", "Tarea 3", "Tarea 1", "Tarea 2", 
 
 export const ModalGenerico: FC<IModalGenerico> = ({ isOpen, onClose, title, fields, buttons }) => {
 
+    console.log("ModalGenerico -> Prop 'buttons' recibida:", buttons);
+
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
@@ -26,7 +28,15 @@ export const ModalGenerico: FC<IModalGenerico> = ({ isOpen, onClose, title, fiel
         };
     }, [isOpen]);
 
+    const handleAccept = () => {
+        console.log("Tarea creada (simulado)");
+        onClose();
+    };
+
     if (!isOpen) return null
+
+    console.log("ModalGenerico -> ¿Incluye 'cancel'?", buttons.includes("cancel"));
+    console.log("ModalGenerico -> ¿Incluye 'accept'?", buttons.includes("accept"));
 
     return (
         <div className={styles.background} onClick={onClose}>
@@ -83,17 +93,13 @@ export const ModalGenerico: FC<IModalGenerico> = ({ isOpen, onClose, title, fiel
                 </form>
                 <div className={styles.fieldButtons}>
                     {buttons.includes("cancel") && (
-                        <button onClick={onClose} className={styles.cancelButton}><VscChromeClose /></button>
+                        <button onClick={onClose} className={styles.cancelButton}>Cancelar</button>
                     )}
                     {buttons.includes("accept") && (
-                        <button onClick={onClose} className={styles.acceptButton}><VscCheck /></button>
+                        <button onClick={handleAccept} className={styles.acceptButton}>Aceptar</button>
                     )}
                 </div>
-
-
-
             </div>
-
         </div>
     )
 }

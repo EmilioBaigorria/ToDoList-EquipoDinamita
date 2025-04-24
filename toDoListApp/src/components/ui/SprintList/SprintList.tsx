@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react"
 import { ISprint } from "../../../types/ISprint"
 import { Button } from "../Button/Button"
@@ -10,10 +9,7 @@ import {ModalEditarSprint} from "../../modals/ModalEditarSprint/modalEditarSprin
 import { ModalVerSprint } from "../../modals/ModalVerSprint/modalVerSprint"
 import { NavLink } from "react-router-dom"
 
-
-
 export const SprintList = () => {
-
     const [crearSprintModal,setCrearSprintModal]=useState(false)
     const [editarSprintModal,setEditarSprintModal]=useState(false)
     const [verSpringModal,setVerSprintgModal]=useState(false)
@@ -30,41 +26,42 @@ export const SprintList = () => {
         getSpr()
     },[])
     
-
-  return (
-    <div className={styles.mainContainer}>
-        <ModalCrearSprint
-        isOpen={crearSprintModal}
-        onClose={()=>setCrearSprintModal(false)}
-        />
-        <ModalEditarSprint
-        isOpen={editarSprintModal}
-        onClose={()=>setEditarSprintModal(false)}
-        />
-        <ModalVerSprint
-        isOpen={verSpringModal}
-        onClose={()=>setVerSprintgModal(false)}
-        />
-        <div className={styles.mainContainer_contentContainer}>
-            <div className={styles.buttonsContainer}>
-                <NavLink to="/"><Button text="Backlog"  action={()=>{}}/></NavLink>
+    return (
+        <div className={styles.mainContainer}>
+            <ModalCrearSprint
+                isOpen={crearSprintModal}
+                onClose={()=>setCrearSprintModal(false)}
+            />
+            <ModalEditarSprint
+                isOpen={editarSprintModal}
+                onClose={()=>setEditarSprintModal(false)}
+            />
+            <ModalVerSprint
+                isOpen={verSpringModal}
+                onClose={()=>setVerSprintgModal(false)}
+            />
+            <div className={styles.mainContainer_contentContainer}>
+                <div className={styles.buttonsContainer}>
+                    <NavLink to="/"><Button text="Backlog" action={()=>{}}/></NavLink>
+                </div>
+                <div className={styles.contentContainer_sprintList_buttonSection}>
+                    <p>Sprints</p>
+                    <Button text="CrearSprint" action={()=>{setCrearSprintModal(true)}}/>
+                </div>
+                <div className={styles.sprintListContainer}>
+                    {sprints.map((sprint)=>(
+                        <SprintListCard 
+                            key={sprint.id}
+                            sprint={sprint} 
+                            setEditarSprintModal={setEditarSprintModal} 
+                            setVerSprintgModal={setVerSprintgModal}
+                        />
+                    ))}
+                </div>
             </div>
-            <div className={styles.contentContainer_sprintList_buttonSection}>
-                <p>Sprints</p>
-                <Button text="CrearSprint" action={()=>{setCrearSprintModal(true)}}/>
-            </div>
-            <div className={styles.sprintListContainer}>
-            {sprints.map((sprint)=>(
-                    <SprintListCard key={sprint.id}
-                    sprint={sprint} 
-                    setEditarSprintModal={setEditarSprintModal} 
-                    setVerSprintgModal={setVerSprintgModal}/>
-            ))}
+            <div className={styles.bar}>
+                {/*Barra*/}
             </div>
         </div>
-        <div className={styles.bar}>
-            {/*Barra*/}
-        </div>
-    </div>
-  )
+    )
 }

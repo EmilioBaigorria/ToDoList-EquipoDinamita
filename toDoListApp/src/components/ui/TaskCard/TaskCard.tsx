@@ -1,13 +1,37 @@
-import { FC } from "react"
+import { FC, useEffect, useState } from "react"
 import styles from "./TaskCard.module.css"
 import { Button } from "../Button/Button"
 import { ITask } from "../../../types/ITask"
+import { ISprint } from "../../../types/ISprint"
+import { getALLSprints, addTaskToSprint } from "../../../data/sprintController"
+
 interface ITaskCard{
     data:ITask
     setEditTareaModal:Function
     setVerTareaModal:Function
 }
+
 export const TaskCard:FC<ITaskCard> = ({data,setEditTareaModal,setVerTareaModal}) => {
+  const [sprints, setSprints] = useState<ISprint[]>([])
+  const [selectedSprint, setSelectedSprint] = useState<string>("")
+
+  const getSprints = async () => {
+    const sprintsList = await getALLSprints()
+    if (sprintsList) {
+      setSprints(sprintsList)
+    }
+  }
+
+  useEffect(() => {
+    getSprints()
+  }, [])
+
+  const handleSprintChange = async (sprintId: string) => {
+    setSelectedSprint(sprintId)
+    if (sprintId) {
+      await addTaskToSprint(data, sprintId)
+    }
+  }
   
   return (
     <div className={styles.mainContainer}>
@@ -20,8 +44,18 @@ export const TaskCard:FC<ITaskCard> = ({data,setEditTareaModal,setVerTareaModal}
         </p>
       </div>
       <div className={styles.rightDataContainer}>
-        <Button text="Enviar a" action={()=>{}}/>
-        <p>dropdown</p>
+        <select 
+          value={selectedSprint} 
+          onChange={(e) => handleSprintChange(e.target.value)}
+          className={styles.sprintSelector}
+        >
+          <option value="">Seleccionar Sprint</option>
+          {sprints.map((sprint) => (
+            <option key={sprint.id} value={sprint.id}>
+              {sprint.nombre}
+            </option>
+          ))}
+        </select>
         <Button action={()=>{setVerTareaModal(true)}} icon={<span className="material-symbols-outlined">visibility</span>}/>
         <Button action={()=>{setEditTareaModal(true)}} icon={<span className="material-symbols-outlined">edit</span>}/>
         <Button  action={()=>{}} icon={<span className="material-symbols-outlined">delete</span>} />
