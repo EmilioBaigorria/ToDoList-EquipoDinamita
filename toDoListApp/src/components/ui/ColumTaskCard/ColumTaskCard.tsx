@@ -2,17 +2,21 @@ import { FC } from "react"
 import { useParams } from "react-router-dom"
 import Swal from "sweetalert2"
 import { changeTaskStateOnSprint, deleteTaskInSprintById } from "../../../data/sprintController"
+import { useTaskStore } from "../../../store/tareaStore"
 import { ITask, State } from "../../../types/ITask"
 import { Button } from "../Button/Button"
 import styles from "./ColumTaskCard.module.css"
 interface IColumTaskCard {
     task: ITask
-    setCrearTareaModal: Function
     setEditarTareaModal: Function
     setVerTareaModal: Function
 }
-export const ColumTaskCard: FC<IColumTaskCard> = ({ task, setCrearTareaModal, setEditarTareaModal, setVerTareaModal }) => {
+export const ColumTaskCard: FC<IColumTaskCard> = ({ task, setEditarTareaModal, setVerTareaModal }) => {
+    
     let sprintId = useParams().sprintId
+
+    const setTareaActiva = useTaskStore(state => state.setTareaActiva)
+
     const handleDelete = () => {
         Swal.fire({
             title: "¿Seguro?",
@@ -62,12 +66,18 @@ export const ColumTaskCard: FC<IColumTaskCard> = ({ task, setCrearTareaModal, se
                     } />
                 </div>
                 <div className={styles.buttonsContainer_collection}>
-                    <Button action={() => { }} icon={
+                    <Button action={() => {
+                        setTareaActiva(task)
+                        setVerTareaModal(true)
+                    }} icon={
                         <span className="material-symbols-outlined">
                             visibility
                         </span>
                     } />
-                    <Button action={() => { }} icon={
+                    <Button action={() => {
+                        setTareaActiva(task)
+                        setEditarTareaModal(true)
+                    }} icon={
                         <span className="material-symbols-outlined">
                             edit
                         </span>

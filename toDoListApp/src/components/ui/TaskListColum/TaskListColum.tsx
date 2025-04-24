@@ -5,11 +5,10 @@ import styles from "./TaskListColum.module.css"
 interface ITaskListColum {
     typeText: String
     tasks: ITask[]
-    setCrearTareaModal: Function
     setEditarTareaModal: Function
     setVerTareaModal: Function
 }
-export const TaskListColum: FC<ITaskListColum> = ({ typeText, tasks, setCrearTareaModal, setEditarTareaModal, setVerTareaModal }) => {
+export const TaskListColum: FC<ITaskListColum> = ({ typeText, tasks, setEditarTareaModal, setVerTareaModal }) => {
 
 
     return (
@@ -21,8 +20,7 @@ export const TaskListColum: FC<ITaskListColum> = ({ typeText, tasks, setCrearTar
                 <div className={styles.tasksContainer}>
                     {tasks && tasks.length > 0 ?
                         tasks.map((el) => (
-                            <ColumTaskCard 
-                            setCrearTareaModal={setCrearTareaModal}
+                            <ColumTaskCard
                             setEditarTareaModal={setEditarTareaModal}
                             setVerTareaModal={setVerTareaModal}
                             key={el.id} task={el} />

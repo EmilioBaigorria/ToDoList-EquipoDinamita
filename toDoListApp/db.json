@@ -48,9 +48,9 @@
         "tareas": [
           {
             "id": "bf70a8cc-894a-4500-a6de-fc718765269b",
-            "titulo": "Comprar Queso",
-            "descripcion": "Comprar 200 gramos de queso",
-            "estado": 0,
+            "titulo": "Comprar Quesoso",
+            "descripcion": "Comprar 200 gramos de quesoso",
+            "estado": 1,
             "fechaLimite": "2025-06-26"
           },
           {
@@ -66,6 +66,35 @@
             "descripcion": "Comprar 600 gramos de pan",
             "estado": 0,
             "fechaLimite": "2025-06-26"
+          },
+          {
+            "id": "",
+            "titulo": "Jejeje",
+            "descripcion": "quesoso",
+            "estado": 2,
+            "fechaLimite": "2160-12-24"
+          }
+        ]
+      },
+      {
+        "id": "6cb16e8b-46f8-4100-ab9c-a1e56de263e9",
+        "nombre": "abc",
+        "fechaInicio": "2025-04-12",
+        "fechaCierre": "2025-04-11",
+        "tareas": [
+          {
+            "id": "dcec0ad4-31e0-4279-8ccf-72bd1f20b52d",
+            "titulo": "Tarea backlogggggggggggggggggg",
+            "descripcion": "Descripcion tarea backlog",
+            "estado": "pendiente",
+            "fechaLimite": "2025-03-05"
+          },
+          {
+            "id": "2a8ed886-1edb-427d-a190-dbdfdcc70d8c",
+            "titulo": "Comprar jamon",
+            "descripcion": "Comprar 200 gramos de jamon",
+            "estado": 0,
+            "fechaLimite": "2025-06-27"
           }
         ]
       }

@@ -46,23 +46,22 @@ export const TaskListing: FC<ITaskListing> = ({ setCrearTareaModal, setEditarTar
                     <div className={styles.contentContainer}>
                         <div className={styles.textButtonContainer}>
                             <p>{sprint?.nombre}</p>
-                            <Button action={() => { }} text="Crear Tarea" />
+                            <Button action={() => {
+                                setCrearTareaModal(true)
+                            }} text="Crear Tarea" />
                         </div>
                         <div className={styles.columsContainer}>
                             <TaskListColum
-                                setCrearTareaModal={setCrearTareaModal}
                                 setEditarTareaModal={setEditarTareaModal}
                                 setVerTareaModal={setVerTareaModal}
                                 typeText={"Pendiente"}
                                 tasks={sprint.tareas.filter((el) => el.estado == 0)} />
                             <TaskListColum
-                                setCrearTareaModal={setCrearTareaModal}
                                 setEditarTareaModal={setEditarTareaModal}
                                 setVerTareaModal={setVerTareaModal}
                                 typeText={"Activo"}
                                 tasks={sprint.tareas.filter((el) => el.estado == 1)} />
                             <TaskListColum
-                                setCrearTareaModal={setCrearTareaModal}
                                 setEditarTareaModal={setEditarTareaModal}
                                 setVerTareaModal={setVerTareaModal}
                                 typeText={"Terminado"}
