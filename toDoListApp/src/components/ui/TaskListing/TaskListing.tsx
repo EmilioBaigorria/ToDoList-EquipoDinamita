@@ -32,7 +32,7 @@ export const TaskListing = () => {
     }
     useEffect(() => {
         if (sprintId) getSprints(sprintId)
-    }, [sprintId])
+    }, [sprintId,sprint.tareas])
     return (
         <div>
             {sprint.id != "none" ?

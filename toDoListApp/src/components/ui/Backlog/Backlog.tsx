@@ -21,7 +21,7 @@ export const Backlog:FC<IBacklog> = ({setCreateTareaModal,setEditTareaModal,setV
 
     useEffect(() => {
         getTareas()
-    }, [])
+    }, [taskList])
 
     return (
         <div className={styles.mainBacklogContainer}>

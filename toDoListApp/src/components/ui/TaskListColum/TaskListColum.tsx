@@ -5,6 +5,7 @@ import styles from "./TaskListColum.module.css"
 interface ITaskListColum {
   typeText: String
   tasks: ITask[]
+
 }
 export const TaskListColum: FC<ITaskListColum> = ({ typeText, tasks }) => {
 

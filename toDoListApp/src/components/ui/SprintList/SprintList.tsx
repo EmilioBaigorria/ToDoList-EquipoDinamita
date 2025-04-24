@@ -27,7 +27,7 @@ export const SprintList: FC<ISprintLIst> = ({ setCrearSprintModal, setEditarSpri
     }
     useEffect(() => {
         getSpr()
-    }, [])
+    }, [sprints])
 
     return (
         <div className={styles.mainContainer}>
