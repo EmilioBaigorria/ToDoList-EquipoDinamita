@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 import { getALLSprints } from "../../../data/sprintController"
 import { ISprint } from "../../../types/ISprint"
-import { ModalCrearSprint } from "../../modals/ModalCrearSprint/modalCrearSprint"
-import { ModalEditarSprint } from "../../modals/ModalEditarSprint/modalEditarSprint"
-import { ModalVerSprint } from "../../modals/ModalVerSprint/modalVerSprint"
+
 import { Button } from "../Button/Button"
 import { SprintListCard } from "../SprintListCard/SprintListCard"
 import styles from "./SprintList.module.css"
 
-export const SprintList = () => {
-    const [crearSprintModal, setCrearSprintModal] = useState(false)
-    const [editarSprintModal, setEditarSprintModal] = useState(false)
-    const [verSpringModal, setVerSprintgModal] = useState(false)
+interface ISprintLIst {
+    setCrearSprintModal: Function
+
+    setEditarSprintModal: Function
+
+    setVerSprintModal: Function
+
+}
+export const SprintList: FC<ISprintLIst> = ({ setCrearSprintModal, setEditarSprintModal, setVerSprintModal }) => {
 
     const [sprints, setSprints] = useState<ISprint[]>([])
 
@@ -28,18 +31,6 @@ export const SprintList = () => {
 
     return (
         <div className={styles.mainContainer}>
-            <ModalCrearSprint
-                isOpen={crearSprintModal}
-                onClose={() => setCrearSprintModal(false)}
-            />
-            <ModalEditarSprint
-                isOpen={editarSprintModal}
-                onClose={() => setEditarSprintModal(false)}
-            />
-            <ModalVerSprint
-                isOpen={verSpringModal}
-                onClose={() => setVerSprintgModal(false)}
-            />
             <div className={styles.mainContainer_contentContainer}>
                 <div className={styles.buttonsContainer}>
                     <NavLink to="/"><Button text="Backlog" action={() => { }} /></NavLink>
@@ -54,7 +45,7 @@ export const SprintList = () => {
                             key={sprint.id}
                             sprint={sprint}
                             setEditarSprintModal={setEditarSprintModal}
-                            setVerSprintgModal={setVerSprintgModal}
+                            setVerSprintgModal={setVerSprintModal}
                         />
                     ))}
                 </div>

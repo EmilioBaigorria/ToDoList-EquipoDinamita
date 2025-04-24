@@ -1,17 +1,15 @@
-import { useEffect, useState } from "react"
-import { ModalCrearTarea } from "../../modals/ModalCrearTarea/modalCrearTarea"
+import { FC, useEffect, useState } from "react"
 import { Button } from "../Button/Button"
 import { TaskCard } from "../TaskCard/TaskCard"
 import styles from "./Backlog.module.css"
 import { getALLTareas } from "../../../data/taskController"
 import { ITask } from "../../../types/ITask"
-import { ModalEditarTarea } from "../../modals/ModalEditarTarea/modalEditarTarea"
-import { ModalVerTarea } from "../../modals/ModalVerTarea/modalVerTarea"
-
-export const Backlog = () => {
-    const [createTareaModal, setCreateTareaModal] = useState(false)
-    const [editTareaModal, setEditTareaModal] = useState(false)
-    const [verTareaModal, setVerTareaModal] = useState(false)
+interface IBacklog{
+    setCreateTareaModal:Function
+    setEditTareaModal:Function
+    setVerTareaModal:Function
+}
+export const Backlog:FC<IBacklog> = ({setCreateTareaModal,setEditTareaModal,setVerTareaModal}) => {
     const [taskList, setTaskList] = useState<ITask[]>([])
 
     const getTareas = async () => {
@@ -27,18 +25,6 @@ export const Backlog = () => {
 
     return (
         <div className={styles.mainBacklogContainer}>
-            <ModalCrearTarea
-                isOpen={createTareaModal}
-                onClose={() => setCreateTareaModal(false)}
-            />
-            <ModalEditarTarea
-                isOpen={editTareaModal}
-                onClose={() => setEditTareaModal(false)}
-            />
-            <ModalVerTarea
-                isOpen={verTareaModal}
-                onClose={() => setVerTareaModal(false)}
-            />
             
             <div className={styles.headerContainer}>
                 <h1 className={styles.title}>Backlog</h1>
