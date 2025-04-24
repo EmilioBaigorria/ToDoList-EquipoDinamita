@@ -1,8 +1,8 @@
 import { FC } from "react"
 import { useParams } from "react-router-dom"
 import Swal from "sweetalert2"
-import { deleteTaskInSprintById } from "../../../data/sprintController"
-import { ITask } from "../../../types/ITask"
+import { changeTaskStateOnSprint, deleteTaskInSprintById } from "../../../data/sprintController"
+import { ITask, State } from "../../../types/ITask"
 import { Button } from "../Button/Button"
 import styles from "./ColumTaskCard.module.css"
 interface IColumTaskCard {
@@ -25,7 +25,7 @@ export const ColumTaskCard: FC<IColumTaskCard> = ({ task, setCrearTareaModal, se
             cancelButtonText: "Cancelar"
         }).then((result) => {
             if (result.isConfirmed && sprintId) {
-                deleteTaskInSprintById(task.id,sprintId)
+                deleteTaskInSprintById(task.id, sprintId)
                 Swal.fire({
                     title: "¡Eliminado exitosamente!",
                     text: "La tarea fue eliminado exitosamente",
@@ -33,6 +33,14 @@ export const ColumTaskCard: FC<IColumTaskCard> = ({ task, setCrearTareaModal, se
                 });
             }
         });
+    }
+    const handelChangeState = () => {
+        if (task.estado !== State.terminado && sprintId) {
+            changeTaskStateOnSprint(task.estado + 1, task, sprintId)
+        }
+        if (task.estado == State.terminado && sprintId) {
+            deleteTaskInSprintById(task.id, sprintId)
+        }
     }
     return (
 
@@ -45,7 +53,7 @@ export const ColumTaskCard: FC<IColumTaskCard> = ({ task, setCrearTareaModal, se
             <div className={styles.buttonsContainer}>
                 <div className={styles.buttonsContainer_collection}>
                     <Button action={() => { }} text="mover a backlog" />
-                    <Button action={() => { }} text={
+                    <Button action={handelChangeState} text={
                         task.estado == 0 ?
                             "mover a en proceso" :
                             task.estado == 1 ?
