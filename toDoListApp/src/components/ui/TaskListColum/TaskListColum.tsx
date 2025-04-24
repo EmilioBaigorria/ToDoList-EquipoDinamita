@@ -1,12 +1,12 @@
-import { FC} from "react"
+import { FC } from "react"
 import { ITask } from "../../../types/ITask"
-import styles from "./TaskListColum.module.css"
 import { ColumTaskCard } from "../ColumTaskCard/ColumTaskCard"
-interface ITaskListColum{
-  typeText:String
-  tasks:ITask[]
+import styles from "./TaskListColum.module.css"
+interface ITaskListColum {
+  typeText: String
+  tasks: ITask[]
 }
-export const TaskListColum:FC<ITaskListColum> = ({typeText,tasks}) => {
+export const TaskListColum: FC<ITaskListColum> = ({ typeText, tasks }) => {
 
 
   return (
@@ -18,7 +18,7 @@ export const TaskListColum:FC<ITaskListColum> = ({typeText,tasks}) => {
         <div className={styles.tasksContainer}>
           {tasks && tasks.length>0  ?
             tasks.map((el) => (
-              <ColumTaskCard key={el.id} task={el}/>
+              <ColumTaskCard key={el.id} task={el} />
             )) : <p>Ningura esta asignada a este cuadrante</p>}
         </div>
       </div>

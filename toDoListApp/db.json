@@ -14,6 +14,27 @@
         "descripcion": "Una nueva tareas hecha para testeo",
         "estado": "activo",
         "fechaLimite": "23-4-24"
+      },
+      {
+        "id": "207e42cc-99e9-4063-911c-08233c858dcb",
+        "titulo": "tareaPrueba",
+        "descripcion": "espero que funcione",
+        "estado": 0,
+        "fechaLimite": "2025-04-19"
+      },
+      {
+        "id": "99037c35-40c9-4713-8942-90ef8cd5f07a",
+        "titulo": "joya",
+        "descripcion": "xdd",
+        "estado": 2,
+        "fechaLimite": "2025-04-15"
+      },
+      {
+        "id": "13936860-8b4b-4f56-88aa-41921a9b40d0",
+        "titulo": "Dni",
+        "descripcion": "emptiness",
+        "estado": 2,
+        "fechaLimite": "2040-07-20"
       }
     ]
   },
@@ -68,6 +89,108 @@
         "fechaInicio": "07/04/2025",
         "nombre": "Sprint de prueba modificado",
         "tareas": []
+      },
+      {
+        "id": "629cd9fc-bd93-4eec-974c-cee2394e7bda",
+        "fechaInicio": "2025-04-03",
+        "fechaCierre": "2025-04-19",
+        "nombre": "jajaja",
+        "tareas": []
+      },
+      {
+        "id": "82495097-844d-4adf-9c0f-922f29df7add",
+        "nombre": "abc",
+        "fechaInicio": "2025-04-12",
+        "fechaCierre": "2025-04-11",
+        "tareas": []
+      },
+      {
+        "id": "bd57f76b-ed63-490c-9cef-8d0afd279353",
+        "nombre": "",
+        "fechaInicio": "",
+        "fechaCierre": "",
+        "tareas": [
+          {
+            "id": "dcec0ad4-31e0-4279-8ccf-72bd1f20b52d",
+            "titulo": "Tarea backlog",
+            "descripcion": "Descripcion tarea backlog",
+            "estado": "pendiente",
+            "fechaLimite": "2025-03-05"
+          },
+          {
+            "id": "99037c35-40c9-4713-8942-90ef8cd5f07a",
+            "titulo": "joya",
+            "descripcion": "xdd",
+            "estado": 2,
+            "fechaLimite": "2025-04-15"
+          }
+        ]
+      },
+      {
+        "id": "b30cfb63-3117-4499-9fa5-521e91381f3f",
+        "nombre": "tonga",
+        "fechaInicio": "2025-04-24",
+        "fechaCierre": "2025-04-24",
+        "tareas": [
+          {
+            "id": "dcec0ad4-31e0-4279-8ccf-72bd1f20b52d",
+            "titulo": "Tarea backlog",
+            "descripcion": "Descripcion tarea backlog",
+            "estado": "pendiente",
+            "fechaLimite": "2025-03-05"
+          },
+          {
+            "id": "207e42cc-99e9-4063-911c-08233c858dcb",
+            "titulo": "tareaPrueba",
+            "descripcion": "espero que funcione",
+            "estado": 0,
+            "fechaLimite": "2025-04-19"
+          },
+          {
+            "id": "99037c35-40c9-4713-8942-90ef8cd5f07a",
+            "titulo": "joya",
+            "descripcion": "xdd",
+            "estado": 2,
+            "fechaLimite": "2025-04-15"
+          }
+        ]
+      },
+      {
+        "id": "28459311-5205-4e86-911f-2254359ce3b7",
+        "nombre": "emilio",
+        "fechaInicio": "2025-04-11",
+        "fechaCierre": "2025-04-26",
+        "tareas": [
+          {
+            "id": "dcec0ad4-31e0-4279-8ccf-72bd1f20b52d",
+            "titulo": "Tarea backlog",
+            "descripcion": "Descripcion tarea backlog",
+            "estado": "pendiente",
+            "fechaLimite": "2025-03-05"
+          }
+        ]
+      },
+      {
+        "id": "32a99444-523e-4775-8c15-d447acb08d46",
+        "nombre": "noterompasss",
+        "fechaInicio": "2025-04-25",
+        "fechaCierre": "2025-04-26",
+        "tareas": [
+          {
+            "id": "207e42cc-99e9-4063-911c-08233c858dcb",
+            "titulo": "tareaPrueba",
+            "descripcion": "espero que funcione",
+            "estado": 0,
+            "fechaLimite": "2025-04-19"
+          },
+          {
+            "id": "99037c35-40c9-4713-8942-90ef8cd5f07a",
+            "titulo": "joya",
+            "descripcion": "xdd",
+            "estado": 2,
+            "fechaLimite": "2025-04-15"
+          }
+        ]
       }
     ]
   }

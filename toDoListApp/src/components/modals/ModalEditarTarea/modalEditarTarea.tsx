@@ -16,6 +16,7 @@ export const ModalEditarTarea: FC<IModalEditarTarea> = ({ isOpen, onClose }) => 
                 title="Editar tareas"
                 fields={["titulo", "estado", "descripcion", "fechaLimite"]}
                 buttons={["cancel", "accept"]}
+                modo="editar"
             />
         </div>
     )

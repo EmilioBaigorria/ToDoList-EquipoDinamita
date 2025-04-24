@@ -16,6 +16,7 @@ export const ModalVerTarea: FC<IModalVerTarea> = ({ isOpen, onClose }) => {
                 title="Ver tareas"
                 fields={["titulo", "estado", "descripcion", "fechaLimite"]}
                 buttons={["cancel"]}
+                modo="ver"
             />
         </div>
     )

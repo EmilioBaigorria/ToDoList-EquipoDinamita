@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import styles from "./TaskListing.module.css"
-import { TaskListColum } from "../TaskListColum/TaskListColum"
-import { ISprint } from "../../../types/ISprint"
-import { Button } from "../Button/Button"
 import { useParams } from "react-router"
 import { getSprintById } from "../../../data/sprintController"
+import { ISprint } from "../../../types/ISprint"
+import { Button } from "../Button/Button"
+import { TaskListColum } from "../TaskListColum/TaskListColum"
+import styles from "./TaskListing.module.css"
 
 export const TaskListing = () => {
     const initialValues: ISprint = {
@@ -40,7 +40,7 @@ export const TaskListing = () => {
                     <div className={styles.contentContainer}>
                         <div className={styles.textButtonContainer}>
                             <p>{sprint?.nombre}</p>
-                            <Button action={() => { }} text="Crear Tarea" />
+                            <Button action={() => {}} text="Crear Tarea" />
                         </div>
                         <div className={styles.columsContainer}>
                             <TaskListColum typeText={"Pendiente"} tasks={sprint.tareas.filter((el) => el.estado == 0)} />

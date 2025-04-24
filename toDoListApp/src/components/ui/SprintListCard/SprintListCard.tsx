@@ -1,9 +1,9 @@
 import { FC } from "react"
-import { ISprint } from "../../../types/ISprint"
-import styles from "./SprintListCard.module.css"
-import { Button } from "../Button/Button"
-import { activeSprintStore } from "../../../store/activeSprintStore"
 import { useNavigate } from "react-router"
+import { activeSprintStore } from "../../../store/activeSprintStore"
+import { ISprint } from "../../../types/ISprint"
+import { Button } from "../Button/Button"
+import styles from "./SprintListCard.module.css"
 
 
 
@@ -14,8 +14,11 @@ interface ISprintListCard{
 }
 export const SprintListCard:FC<ISprintListCard> = ({sprint,setEditarSprintModal,setVerSprintgModal}) => {
     const navigate=useNavigate()
+    const setActiveSprint = activeSprintStore(state => state.setActiveSprint)
+
     const handleNavigate=()=>{
         navigate(`/sprints/${sprint.id}`)
+        setActiveSprint(sprint)
     }
   return (
     <div className={styles.mainContainer} onClick={handleNavigate}>

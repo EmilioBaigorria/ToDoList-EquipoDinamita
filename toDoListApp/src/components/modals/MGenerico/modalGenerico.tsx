@@ -6,13 +6,15 @@ interface IModalGenerico {
     isOpen: boolean,
     onClose: () => void,
     title: string,
-    fields: ("titulo" | "descripcion" | "estado" | "fechaLimite" | "nombre" | "fechaInicio" | "fechaCierre" | "listadoTareas")[]
-    buttons: ("cancel" | "accept")[]
+    fields: ("titulo" | "descripcion" | "estado" | "fechaLimite" | "nombre" | "fechaInicio" | "fechaCierre" | "listadoTareas")[],
+    buttons: ("cancel" | "accept")[],
+    modo: "crear" | "editar" | "ver"
 }
 
 const tareasGenericas = ["Tarea 1", "Tarea 2", "Tarea 3", "Tarea 1", "Tarea 2", "Tarea 3", "Tarea 1", "Tarea 2", "Tarea 3", "Tarea 1", "Tarea 2", "Tarea 3"]
 
-export const ModalGenerico: FC<IModalGenerico> = ({ isOpen, onClose, title, fields, buttons }) => {
+export const ModalGenerico: FC<IModalGenerico> = ({ isOpen, onClose, title, fields, buttons, modo }) => {
+
 
     console.log("ModalGenerico -> Prop 'buttons' recibida:", buttons);
 
@@ -28,10 +30,22 @@ export const ModalGenerico: FC<IModalGenerico> = ({ isOpen, onClose, title, fiel
         };
     }, [isOpen]);
 
-    const handleAccept = () => {
-        console.log("Tarea creada (simulado)");
-        onClose();
-    };
+    let colorMode
+
+    switch (modo) {
+        case "crear":
+            colorMode = "#7BFF98" // verde
+            break
+        case "editar":
+            colorMode = "#887BFF" // azul
+            break
+        case "ver":
+            colorMode = "#FBFF80" // amarillo
+            break
+        default:
+            colorMode = "#FFFFFF" // blanco
+            break
+    }
 
     if (!isOpen) return null
 
@@ -41,46 +55,47 @@ export const ModalGenerico: FC<IModalGenerico> = ({ isOpen, onClose, title, fiel
     return (
         <div className={styles.background} onClick={onClose}>
             <div className={styles.modalGlobal} onClick={(e) => e.stopPropagation()}>
-                <h2 className={styles.modalTitle}>{title}</h2>
+                <h2 className={styles.modalTitle} style={{ color: colorMode }}>{title}</h2>
                 <button className={styles.closeButton} onClick={onClose}>✖</button>
                 <form>
-                    {fields.includes("titulo") && (
-                        <>
+                    
+                        <div>
                             <p className={styles.fieldTitle}>Título:</p>
                             <input type="text" placeholder="Título:" className={styles.fieldInput} />
-                        </>)}
-                    {fields.includes("descripcion") && (
-                        <>
+                        </div>
+                        <div>
                             <p className={styles.fieldTitle}>Descripción:</p>
                             <textarea placeholder="Descripción:" className={`${styles.fieldInput} ${styles.textarea}`} />
-                        </>)}
-                    {fields.includes("estado") && (
-                        <>
+                        </div>
+                        <div>
                             <p className={styles.fieldTitle}>Estado:</p>
                             <input type="text" placeholder="Estado:" className={styles.fieldInput} />
-                        </>)}
-                    {fields.includes("fechaLimite") && (
-                        <>
+                        </div>
+                        <div>
                             <p className={styles.fieldTitle}>Fecha límite:</p>
                             <input type="date" className={styles.fieldInput} />
-                        </>)}
-                    {fields.includes("nombre") && (
-                        <>
+                        </div>
+                        
+
+
+
+
+
+
+                        
+                        <div>
                             <p className={styles.fieldTitle}>Nombre:</p>
                             <input type="text" placeholder="Nombre:" className={styles.fieldInput} />
-                        </>)}
-                    {fields.includes("fechaInicio") && (
-                        <>
+                        </div>
+                        <div>
                             <p className={styles.fieldTitle}>Fecha inicio:</p>
                             <input type="date" className={styles.fieldInput} />
-                        </>)}
-                    {fields.includes("fechaCierre") && (
-                        <>
+                        </div>
+                        <div>
                             <p className={styles.fieldTitle}>Fecha cierre:</p>
                             <input type="date" className={styles.fieldInput} />
-                        </>)}
-                    {fields.includes("listadoTareas") && (
-                        <>
+                        </div>
+                        <div>
                             <p className={styles.fieldTitle}>Listado tareas:</p>
                             <select className={styles.fieldInput} >
                                 {tareasGenericas.map((tarea, index) => (
@@ -89,15 +104,12 @@ export const ModalGenerico: FC<IModalGenerico> = ({ isOpen, onClose, title, fiel
                                     </option>
                                 ))}
                             </select>
-                        </>)}
+                        </div>
                 </form>
                 <div className={styles.fieldButtons}>
-                    {buttons.includes("cancel") && (
-                        <button onClick={onClose} className={styles.cancelButton}>Cancelar</button>
-                    )}
-                    {buttons.includes("accept") && (
-                        <button onClick={handleAccept} className={styles.acceptButton}>Aceptar</button>
-                    )}
+                        <button onClick={onClose} className={styles.cancelButton}><VscChromeClose /></button>
+                        <button onClick={onClose} className={styles.acceptButton}><VscCheck /></button>
+                    
                 </div>
             </div>
         </div>

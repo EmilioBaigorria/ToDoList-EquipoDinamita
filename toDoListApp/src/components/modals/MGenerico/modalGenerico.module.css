@@ -10,11 +10,12 @@
 }
 
 .modalGlobal {
-    padding: 2%;
+    padding: 1rem;
+    backdrop-filter: blur(3px);
     top: 7.5%;
     left: 30%;
     width: 40vw;
-    height: 80vh;
+    height: 85vh;
     overflow-y: auto;
     background-color: #2b2b2b;
     border-radius: .6rem;
@@ -27,7 +28,6 @@
 
 .modalTitle {
     font-size: 1.8rem;
-    color: white;
     margin-bottom: 1rem
 }
 
@@ -38,7 +38,7 @@
 
 .fieldInput {
     background-color: #2b2b2b;
-    width: 100%;
+    width: 95%;
     border: none;
     outline: none;
     padding: 0.5rem;
