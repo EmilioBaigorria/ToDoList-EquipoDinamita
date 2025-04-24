@@ -37,7 +37,7 @@ export const SprintList: FC<ISprintLIst> = ({ setCrearSprintModal, setEditarSpri
                 </div>
                 <div className={styles.contentContainer_sprintList_buttonSection}>
                     <p>Sprints</p>
-                    <Button text="CrearSprint" action={() => { setCrearSprintModal(true) }} />
+                    <Button text="Crear Sprint" action={() => { setCrearSprintModal(true) }} />
                 </div>
                 <div className={styles.sprintListContainer}>
                     {sprints.map((sprint) => (

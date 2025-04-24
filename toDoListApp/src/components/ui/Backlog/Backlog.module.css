@@ -38,6 +38,7 @@
     flex-direction: column;
     gap: 1rem;
     padding: 0 1rem;
+    
 }
 
 /* Estilos para las tarjetas de tareas */
@@ -49,6 +50,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 800px;
+    
 }
 
 .createButton {

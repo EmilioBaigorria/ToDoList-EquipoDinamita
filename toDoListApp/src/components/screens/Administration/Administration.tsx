@@ -1,22 +1,24 @@
+import { useState } from "react"
+import { ModalCrearSprint } from "../../modals/ModalCrearSprint/modalCrearSprint"
+import { ModalCrearTarea } from "../../modals/ModalCrearTarea/modalCrearTarea"
+import { ModalEditarSprint } from "../../modals/ModalEditarSprint/modalEditarSprint"
+import { ModalEditarTarea } from "../../modals/ModalEditarTarea/modalEditarTarea"
+import { ModalVerSprint } from "../../modals/ModalVerSprint/modalVerSprint"
+import { ModalVerTarea } from "../../modals/ModalVerTarea/modalVerTarea"
 import { Backlog } from "../../ui/Backlog/Backlog"
-import styles from "./Administration.module.css"
 import { Header } from "../../ui/Header/Header"
 import { SprintList } from "../../ui/SprintList/SprintList"
-import { useState } from "react"
-import { ModalEditarSprint } from "../../modals/ModalEditarSprint/modalEditarSprint"
-import { ModalCrearSprint } from "../../modals/ModalCrearSprint/modalCrearSprint"
-import { ModalVerSprint } from "../../modals/ModalVerSprint/modalVerSprint"
-import { ModalCrearTarea } from "../../modals/ModalCrearTarea/modalCrearTarea"
-import { ModalEditarTarea } from "../../modals/ModalEditarTarea/modalEditarTarea"
-import { ModalVerTarea } from "../../modals/ModalVerTarea/modalVerTarea"
+import styles from "./Administration.module.css"
 
 
 export const Administration = () => {
 
+  //useState para tarea
   const [createTareaModal, setCreateTareaModal] = useState(false)
   const [editTareaModal, setEditTareaModal] = useState(false)
   const [verTareaModal, setVerTareaModal] = useState(false)
 
+  //useState para sprint
   const [crearSprintModal, setCrearSprintModal] = useState(false)
   const [editarSprintModal, setEditarSprintModal] = useState(false)
   const [verSpringModal, setVerSprintModal] = useState(false)

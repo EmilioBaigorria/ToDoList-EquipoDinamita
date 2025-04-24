@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from "react"
+import { getALLTareas } from "../../../data/taskController"
+import { ITask } from "../../../types/ITask"
 import { Button } from "../Button/Button"
 import { TaskCard } from "../TaskCard/TaskCard"
 import styles from "./Backlog.module.css"
-import { getALLTareas } from "../../../data/taskController"
-import { ITask } from "../../../types/ITask"
 interface IBacklog{
     setCreateTareaModal:Function
     setEditTareaModal:Function
