@@ -53,7 +53,7 @@ export const ModalCrearSprint: FC<IModalCrearSprint> = ({ isOpen, onClose }) => 
 
     useEffect(() => {
         getTasks()
-    }, [])
+    }, [isOpen])
 
     const handleCloseModal = () => {
         setNewSprint(initialValuesSprint)

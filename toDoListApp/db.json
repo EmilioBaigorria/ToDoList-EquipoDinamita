@@ -2,129 +2,63 @@
   "backlog": {
     "tareas": [
       {
-        "id": "dcec0ad4-31e0-4279-8ccf-72bd1f20b52d",
-        "titulo": "Tarea backlog",
-        "descripcion": "Descripcion tarea backlog",
-        "estado": "pendiente",
-        "fechaLimite": "2025-03-05"
+        "id": "bf70a8cc-894a-4500-a6de-fc718765269b",
+        "titulo": "Comprar Queso",
+        "descripcion": "Comprar 200 gramos de queso",
+        "estado": 0,
+        "fechaLimite": "2025-06-26"
       },
       {
-        "id": "43",
-        "titulo": "Tarea actualizada",
-        "descripcion": "Una nueva tareas hecha para testeo",
-        "estado": "activo",
-        "fechaLimite": "23-4-24"
+        "id": "2a8ed886-1edb-427d-a190-dbdfdcc70d8c",
+        "titulo": "Comprar jamon",
+        "descripcion": "Comprar 200 gramos de jamon",
+        "estado": 0,
+        "fechaLimite": "2025-06-27"
+      },
+      {
+        "id": "51cabca3-bc02-4f3c-b8d0-38451935be6c",
+        "titulo": "Comprar Pan",
+        "descripcion": "Comprar 600 gramos de pan",
+        "estado": 0,
+        "fechaLimite": "2025-06-26"
+      },
+      {
+        "id": "54c0f9f7-ce31-416a-a4b4-1562ca96f868",
+        "titulo": "Maquetar la pantalla administracion",
+        "descripcion": "Para mas información sobre los requerimientos consultar el documento correspondiente",
+        "estado": 0,
+        "fechaLimite": "2025-06-26"
       }
     ]
   },
   "sprintList": {
     "sprints": [
       {
-        "id": "b0e3f34b-68c6-49eb-b059-ab251ed81629",
-        "fechaInicio": "2025-03-04",
-        "fechaCierre": "2025-03-11",
-        "nombre": "Sprint 122",
-        "tareas": [
-          {
-            "id": "50699dec-3d1a-45ff-a94d-82d416eac053",
-            "titulo": "Tarea 2",
-            "descripcion": "Estamos aca",
-            "estado": "0",
-            "fechaLimite": "2025-03-06"
-          },
-          {
-            "id": "50699dec-3d1a-45ff-a94d-82d416eac053",
-            "titulo": "Tarea 4",
-            "descripcion": "Estamos aca",
-            "estado": "1",
-            "fechaLimite": "2025-03-06"
-          },
-          {
-            "id": "50699dec-3d1a-45ff-a94d-82d416eac053",
-            "titulo": "Tarea 3",
-            "descripcion": "Estamos aca",
-            "estado": "2",
-            "fechaLimite": "2025-03-06"
-          },
-          {
-            "id": "43",
-            "titulo": "Tarea actualizada",
-            "descripcion": "Una nueva tareas hecha para testeo",
-            "estado": "activo",
-            "fechaLimite": "23-4-24"
-          },
-          {
-            "id": "dcec0ad4-31e0-4279-8ccf-72bd1f20b52d",
-            "titulo": "Tarea backlog",
-            "descripcion": "Descripcion tarea backlog",
-            "estado": "pendiente",
-            "fechaLimite": "2025-03-05"
-          }
-        ]
-      },
-      {
-        "id": "b30cfb63-3117-4499-9fa5-521e91381f3f",
-        "nombre": "tonga",
+        "id": "439f9738-d340-4a1f-80df-f86437c46299",
+        "nombre": "Picnic",
         "fechaInicio": "2025-04-24",
         "fechaCierre": "2025-04-24",
         "tareas": [
           {
-            "id": "dcec0ad4-31e0-4279-8ccf-72bd1f20b52d",
-            "titulo": "Tarea backlog",
-            "descripcion": "Descripcion tarea backlog",
-            "estado": "pendiente",
-            "fechaLimite": "2025-03-05"
-          },
-          {
-            "id": "207e42cc-99e9-4063-911c-08233c858dcb",
-            "titulo": "tareaPrueba",
-            "descripcion": "espero que funcione",
+            "id": "bf70a8cc-894a-4500-a6de-fc718765269b",
+            "titulo": "Comprar Queso",
+            "descripcion": "Comprar 200 gramos de queso",
             "estado": 0,
-            "fechaLimite": "2025-04-19"
+            "fechaLimite": "2025-06-26"
           },
           {
-            "id": "99037c35-40c9-4713-8942-90ef8cd5f07a",
-            "titulo": "joya",
-            "descripcion": "xdd",
-            "estado": 2,
-            "fechaLimite": "2025-04-15"
-          }
-        ]
-      },
-      {
-        "id": "28459311-5205-4e86-911f-2254359ce3b7",
-        "nombre": "emilio",
-        "fechaInicio": "2025-04-11",
-        "fechaCierre": "2025-04-26",
-        "tareas": [
-          {
-            "id": "dcec0ad4-31e0-4279-8ccf-72bd1f20b52d",
-            "titulo": "Tarea backlog",
-            "descripcion": "Descripcion tarea backlog",
-            "estado": "pendiente",
-            "fechaLimite": "2025-03-05"
+            "id": "2a8ed886-1edb-427d-a190-dbdfdcc70d8c",
+            "titulo": "Comprar jamon",
+            "descripcion": "Comprar 200 gramos de jamon",
+            "estado": 0,
+            "fechaLimite": "2025-06-27"
           },
           {
-            "id": "dcec0ad4-31e0-4279-8ccf-72bd1f20b52d",
-            "titulo": "Tarea backlog",
-            "descripcion": "Descripcion tarea backlog",
-            "estado": "pendiente",
-            "fechaLimite": "2025-03-05"
-          }
-        ]
-      },
-      {
-        "id": "32a99444-523e-4775-8c15-d447acb08d46",
-        "nombre": "noterompasss",
-        "fechaInicio": "2025-04-25",
-        "fechaCierre": "2025-04-26",
-        "tareas": [
-          {
-            "id": "99037c35-40c9-4713-8942-90ef8cd5f07a",
-            "titulo": "joya",
-            "descripcion": "xdd",
-            "estado": 2,
-            "fechaLimite": "2025-04-15"
+            "id": "51cabca3-bc02-4f3c-b8d0-38451935be6c",
+            "titulo": "Comprar Pan",
+            "descripcion": "Comprar 600 gramos de pan",
+            "estado": 0,
+            "fechaLimite": "2025-06-26"
           }
         ]
       }
