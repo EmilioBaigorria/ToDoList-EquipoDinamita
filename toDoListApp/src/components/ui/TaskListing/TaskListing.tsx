@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import { useParams } from "react-router"
 import { getSprintById } from "../../../data/sprintController"
 import { ISprint } from "../../../types/ISprint"
@@ -6,7 +6,13 @@ import { Button } from "../Button/Button"
 import { TaskListColum } from "../TaskListColum/TaskListColum"
 import styles from "./TaskListing.module.css"
 
-export const TaskListing = () => {
+interface ITaskListing {
+    setCrearTareaModal: Function
+    setEditarTareaModal: Function
+    setVerTareaModal: Function
+}
+
+export const TaskListing: FC<ITaskListing> = ({ setCrearTareaModal, setEditarTareaModal, setVerTareaModal }) => {
     const initialValues: ISprint = {
         id: "none",
         fechaInicio: "none",
@@ -32,7 +38,7 @@ export const TaskListing = () => {
     }
     useEffect(() => {
         if (sprintId) getSprints(sprintId)
-    }, [sprintId,sprint.tareas])
+    }, [sprintId, sprint.tareas])
     return (
         <div>
             {sprint.id != "none" ?
@@ -40,12 +46,27 @@ export const TaskListing = () => {
                     <div className={styles.contentContainer}>
                         <div className={styles.textButtonContainer}>
                             <p>{sprint?.nombre}</p>
-                            <Button action={() => {}} text="Crear Tarea" />
+                            <Button action={() => { }} text="Crear Tarea" />
                         </div>
                         <div className={styles.columsContainer}>
-                            <TaskListColum typeText={"Pendiente"} tasks={sprint.tareas.filter((el) => el.estado == 0)} />
-                            <TaskListColum typeText={"Activo"} tasks={sprint.tareas.filter((el) => el.estado == 1)} />
-                            <TaskListColum typeText={"Terminado"} tasks={sprint.tareas.filter((el) => el.estado == 2)} />
+                            <TaskListColum
+                                setCrearTareaModal={setCrearTareaModal}
+                                setEditarTareaModal={setEditarTareaModal}
+                                setVerTareaModal={setVerTareaModal}
+                                typeText={"Pendiente"}
+                                tasks={sprint.tareas.filter((el) => el.estado == 0)} />
+                            <TaskListColum
+                                setCrearTareaModal={setCrearTareaModal}
+                                setEditarTareaModal={setEditarTareaModal}
+                                setVerTareaModal={setVerTareaModal}
+                                typeText={"Activo"}
+                                tasks={sprint.tareas.filter((el) => el.estado == 1)} />
+                            <TaskListColum
+                                setCrearTareaModal={setCrearTareaModal}
+                                setEditarTareaModal={setEditarTareaModal}
+                                setVerTareaModal={setVerTareaModal}
+                                typeText={"Terminado"}
+                                tasks={sprint.tareas.filter((el) => el.estado == 2)} />
                         </div>
                     </div>
                 </div> : <p>Cargando...</p>}

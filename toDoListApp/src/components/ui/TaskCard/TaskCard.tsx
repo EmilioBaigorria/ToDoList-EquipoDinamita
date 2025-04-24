@@ -1,11 +1,12 @@
 import { FC, useEffect, useState } from "react"
-import styles from "./TaskCard.module.css"
-import { Button } from "../Button/Button"
-import { ITask } from "../../../types/ITask"
-import { ISprint } from "../../../types/ISprint"
-import { getALLSprints, addTaskToSprint } from "../../../data/sprintController"
 import Swal from "sweetalert2"
+import { addTaskToSprint, getALLSprints } from "../../../data/sprintController"
 import { eliminarTareaByID } from "../../../data/taskController"
+import { useTaskStore } from "../../../store/tareaStore"
+import { ISprint } from "../../../types/ISprint"
+import { ITask } from "../../../types/ITask"
+import { Button } from "../Button/Button"
+import styles from "./TaskCard.module.css"
 
 interface ITaskCard {
   data: ITask
@@ -16,6 +17,8 @@ interface ITaskCard {
 export const TaskCard: FC<ITaskCard> = ({ data, setEditTareaModal, setVerTareaModal }) => {
   const [sprints, setSprints] = useState<ISprint[]>([])
   const [selectedSprint, setSelectedSprint] = useState<string>("")
+
+  const setTaskActiva = useTaskStore(state => state.setTareaActiva)
 
   const getSprints = async () => {
     const sprintsList = await getALLSprints()
@@ -60,10 +63,10 @@ export const TaskCard: FC<ITaskCard> = ({ data, setEditTareaModal, setVerTareaMo
     <div className={styles.mainContainer}>
       <div className={styles.leftDataContainer}>
         <p>
-          Titulo:{data.titulo}
+          Titulo: {data.titulo}
         </p>
         <p>
-          Descripcion:{data.descripcion}
+          Descripcion: {data.descripcion}
         </p>
       </div>
       <div className={styles.rightDataContainer}>
@@ -80,7 +83,7 @@ export const TaskCard: FC<ITaskCard> = ({ data, setEditTareaModal, setVerTareaMo
           ))}
         </select>
         <Button action={() => { setVerTareaModal(true) }} icon={<span className="material-symbols-outlined">visibility</span>} />
-        <Button action={() => { setEditTareaModal(true) }} icon={<span className="material-symbols-outlined">edit</span>} />
+        <Button action={() => { setTaskActiva(data), setEditTareaModal(true)  }} icon={<span className="material-symbols-outlined">edit</span>} />
         <Button action={handleDelete} icon={<span className="material-symbols-outlined">delete</span>} />
       </div>
     </div>

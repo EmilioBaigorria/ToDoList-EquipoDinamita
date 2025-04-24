@@ -3,7 +3,7 @@
     "tareas": [
       {
         "id": "dcec0ad4-31e0-4279-8ccf-72bd1f20b52d",
-        "titulo": "Tarea backlog",
+        "titulo": "Tarea backlogggggggggggggggggg",
         "descripcion": "Descripcion tarea backlog",
         "estado": "pendiente",
         "fechaLimite": "2025-03-05"
@@ -26,27 +26,6 @@
         "nombre": "Sprint 122",
         "tareas": [
           {
-            "id": "50699dec-3d1a-45ff-a94d-82d416eac053",
-            "titulo": "Tarea 2",
-            "descripcion": "Estamos aca",
-            "estado": "0",
-            "fechaLimite": "2025-03-06"
-          },
-          {
-            "id": "50699dec-3d1a-45ff-a94d-82d416eac053",
-            "titulo": "Tarea 4",
-            "descripcion": "Estamos aca",
-            "estado": "1",
-            "fechaLimite": "2025-03-06"
-          },
-          {
-            "id": "50699dec-3d1a-45ff-a94d-82d416eac053",
-            "titulo": "Tarea 3",
-            "descripcion": "Estamos aca",
-            "estado": "2",
-            "fechaLimite": "2025-03-06"
-          },
-          {
             "id": "43",
             "titulo": "Tarea actualizada",
             "descripcion": "Una nueva tareas hecha para testeo",
@@ -59,6 +38,20 @@
             "descripcion": "Descripcion tarea backlog",
             "estado": "pendiente",
             "fechaLimite": "2025-03-05"
+          },
+          {
+            "id": "dcec0ad4-31e0-4279-8ccf-72bd1f20b52d",
+            "titulo": "Tarea backlog",
+            "descripcion": "Descripcion tarea backlog",
+            "estado": "pendiente",
+            "fechaLimite": "2025-03-05"
+          },
+          {
+            "id": "43",
+            "titulo": "Tarea actualizada",
+            "descripcion": "Una nueva tareas hecha para testeo",
+            "estado": "activo",
+            "fechaLimite": "23-4-24"
           }
         ]
       },
@@ -88,6 +81,13 @@
             "descripcion": "xdd",
             "estado": 2,
             "fechaLimite": "2025-04-15"
+          },
+          {
+            "id": "43",
+            "titulo": "Tarea actualizada",
+            "descripcion": "Una nueva tareas hecha para testeo",
+            "estado": "activo",
+            "fechaLimite": "23-4-24"
           }
         ]
       },

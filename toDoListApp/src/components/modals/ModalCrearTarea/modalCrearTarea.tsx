@@ -1,5 +1,7 @@
 import { ChangeEvent, FC, useState } from "react";
 import { VscCheck, VscChromeClose } from "react-icons/vsc";
+import { useParams } from "react-router-dom";
+import { addTaskToSprint } from "../../../data/sprintController";
 import { crearTarea } from "../../../data/taskController";
 import { ITask, State } from "../../../types/ITask";
 import styles from "./../MGenerico/modalGenerico.module.css";
@@ -21,6 +23,8 @@ export const ModalCrearTarea: FC<IModalCrearTarea> = ({ isOpen, onClose }) => {
 
     const [newTarea, setNewTarea] = useState<ITask>(initialValues)
 
+    const sprintId = useParams().sprintId
+
     const handleChangeInputs = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { value, name } = event.target
         const parsedValue = name === "estado" ? parseInt(value) : value;
@@ -30,8 +34,13 @@ export const ModalCrearTarea: FC<IModalCrearTarea> = ({ isOpen, onClose }) => {
     }
 
     const saveNewTarea = async () => {
-        const result = await crearTarea(newTarea)
-        console.log(result)
+
+        if (sprintId){
+            await addTaskToSprint(newTarea, sprintId)
+        } else {
+            await crearTarea(newTarea)
+        }
+
         setNewTarea(initialValues)
         onClose()
     }

@@ -1,14 +1,17 @@
 import { FC } from "react"
-import styles from "./ColumTaskCard.module.css"
-import { ITask } from "../../../types/ITask"
-import { Button } from "../Button/Button"
+import { useParams } from "react-router-dom"
 import Swal from "sweetalert2"
 import { deleteTaskInSprintById } from "../../../data/sprintController"
-import { useParams } from "react-router-dom"
+import { ITask } from "../../../types/ITask"
+import { Button } from "../Button/Button"
+import styles from "./ColumTaskCard.module.css"
 interface IColumTaskCard {
     task: ITask
+    setCrearTareaModal: Function
+    setEditarTareaModal: Function
+    setVerTareaModal: Function
 }
-export const ColumTaskCard: FC<IColumTaskCard> = ({ task }) => {
+export const ColumTaskCard: FC<IColumTaskCard> = ({ task, setCrearTareaModal, setEditarTareaModal, setVerTareaModal }) => {
     let sprintId = useParams().sprintId
     const handleDelete = () => {
         Swal.fire({
