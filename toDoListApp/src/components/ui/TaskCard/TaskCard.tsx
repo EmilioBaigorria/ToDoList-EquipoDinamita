@@ -16,7 +16,7 @@ interface ITaskCard {
 
 export const TaskCard: FC<ITaskCard> = ({ data, setEditTareaModal, setVerTareaModal }) => {
   let date=new Date()
-
+  const setActiveTask=useTaskStore(state=> state.setTareaActiva)
   const [sprints, setSprints] = useState<ISprint[]>([])
   const [selectedSprint, setSelectedSprint] = useState<string>("")
   const[color,setColor]=useState("")
@@ -96,7 +96,9 @@ export const TaskCard: FC<ITaskCard> = ({ data, setEditTareaModal, setVerTareaMo
             </option>
           ))}
         </select>
-        <Button action={() => { setVerTareaModal(true) }} icon={<span className="material-symbols-outlined">visibility</span>} />
+        <Button action={() => { setVerTareaModal(true)
+          setActiveTask(data)
+         }} icon={<span className="material-symbols-outlined">visibility</span>} />
         <Button action={() => { setTaskActiva(data), setEditTareaModal(true)  }} icon={<span className="material-symbols-outlined">edit</span>} />
         <Button action={handleDelete} icon={<span className="material-symbols-outlined">delete</span>} />
       </div>
