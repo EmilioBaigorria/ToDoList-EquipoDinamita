@@ -16,7 +16,10 @@ export const getALLTareas=async():Promise<ITask[]|undefined>=>{
 }
 export const crearTarea=async(newTask:ITask)=>{
     try {
-        newTask.id = crypto.randomUUID()
+        if(newTask.id == "" ){
+            newTask.id = crypto.randomUUID()
+        }
+
         const tareas=await getALLTareas()
         if(tareas){
             await putTask([...tareas,newTask])

@@ -6,6 +6,7 @@ import { useTaskStore } from "../../../store/tareaStore"
 import { ITask, State } from "../../../types/ITask"
 import { Button } from "../Button/Button"
 import styles from "./ColumTaskCard.module.css"
+import { crearTarea } from "../../../data/taskController"
 interface IColumTaskCard {
     task: ITask
     setEditarTareaModal: Function
@@ -46,6 +47,17 @@ export const ColumTaskCard: FC<IColumTaskCard> = ({ task, setEditarTareaModal, s
             deleteTaskInSprintById(task.id, sprintId)
         }
     }
+    const handleMoveToBacklog=async ()=>{
+        try {
+            if(sprintId){
+                const newtask=await crearTarea(task)
+                console.log(newtask)
+                await deleteTaskInSprintById(task.id,sprintId)
+            }
+        } catch (error) {
+            console.log("Ocurrio un error al mover la tarea al backlog",error)
+        }
+    }
     return (
 
         <div className={styles.mainContainer}>
@@ -56,7 +68,7 @@ export const ColumTaskCard: FC<IColumTaskCard> = ({ task, setEditarTareaModal, s
             </div>
             <div className={styles.buttonsContainer}>
                 <div className={styles.buttonsContainer_collection}>
-                    <Button action={() => { }} text="mover a backlog" />
+                    <Button action={handleMoveToBacklog} text="mover a backlog" />
                     <Button action={handelChangeState} text={
                         task.estado == 0 ?
                             "mover a en proceso" :

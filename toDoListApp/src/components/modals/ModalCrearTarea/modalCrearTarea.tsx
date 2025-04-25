@@ -36,7 +36,9 @@ export const ModalCrearTarea: FC<IModalCrearTarea> = ({ isOpen, onClose }) => {
     const saveNewTarea = async () => {
 
         if (sprintId){
-            await addTaskToSprint(newTarea, sprintId)
+            const newerTask=newTarea
+            newerTask.id=crypto.randomUUID()
+            await addTaskToSprint(newerTask, sprintId)
         } else {
             await crearTarea(newTarea)
         }

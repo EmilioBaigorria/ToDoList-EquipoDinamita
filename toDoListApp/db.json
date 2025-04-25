@@ -66,13 +66,6 @@
             "descripcion": "Comprar 600 gramos de pan",
             "estado": 0,
             "fechaLimite": "2025-06-26"
-          },
-          {
-            "id": "",
-            "titulo": "Jejeje",
-            "descripcion": "quesoso",
-            "estado": 2,
-            "fechaLimite": "2160-12-24"
           }
         ]
       },

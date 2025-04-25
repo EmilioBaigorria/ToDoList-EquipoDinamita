@@ -35,6 +35,7 @@ export const TaskCard: FC<ITaskCard> = ({ data, setEditTareaModal, setVerTareaMo
     setSelectedSprint(sprintId)
     if (sprintId) {
       await addTaskToSprint(data, sprintId)
+      await eliminarTareaByID(data.id)
     }
   }
   const handleDelete = () => {
