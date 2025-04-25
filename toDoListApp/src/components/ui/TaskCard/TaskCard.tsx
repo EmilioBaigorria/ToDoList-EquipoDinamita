@@ -15,8 +15,11 @@ interface ITaskCard {
 }
 
 export const TaskCard: FC<ITaskCard> = ({ data, setEditTareaModal, setVerTareaModal }) => {
+  let date=new Date()
+
   const [sprints, setSprints] = useState<ISprint[]>([])
   const [selectedSprint, setSelectedSprint] = useState<string>("")
+  const[color,setColor]=useState("")
 
   const setTaskActiva = useTaskStore(state => state.setTareaActiva)
 
@@ -29,7 +32,8 @@ export const TaskCard: FC<ITaskCard> = ({ data, setEditTareaModal, setVerTareaMo
 
   useEffect(() => {
     getSprints()
-  }, [])
+    handleDateSignature()
+  }, [sprints])
 
   const handleSprintChange = async (sprintId: string) => {
     setSelectedSprint(sprintId)
@@ -44,10 +48,10 @@ export const TaskCard: FC<ITaskCard> = ({ data, setEditTareaModal, setVerTareaMo
       text: "Esta accion no se puede revertir",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Eliminar",
-      cancelButtonText: "Cancelar"
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      cancelButtonText: "Cancelar",
+      confirmButtonText: "Eliminar"
     }).then((result) => {
       if (result.isConfirmed) {
         eliminarTareaByID(data.id)
@@ -59,9 +63,18 @@ export const TaskCard: FC<ITaskCard> = ({ data, setEditTareaModal, setVerTareaMo
       }
     });
   }
+  const handleDateSignature=()=>{
+    const dataDay=new Date(data.fechaLimite)
+    const msPorDia=1000 * 60 * 60 * 24;
+    const dateDiferenceMs=date.getTime()-dataDay.getTime()
+    const dateDiference=Math.ceil(dateDiferenceMs/msPorDia)
+    if(Math.abs(dateDiference)<3){
+      setColor("#803D3D")
+    }
+  }
 
   return (
-    <div className={styles.mainContainer}>
+    <div style={{backgroundColor:color}} className={styles.mainContainer}>
       <div className={styles.leftDataContainer}>
         <p>
           Titulo: {data.titulo}
